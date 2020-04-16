@@ -8,7 +8,7 @@ const mediumGray = `#4A4C50`
 const darkGray = `#262727`
 
 const bodyFont = `proxima-nova, sans-serif`
-// 400 ou 600
+// 400, 600 ou 700
 const headersFont = `bely-display, sans-serif`
 // 400
 const accentFont = `bely-display, sans-serif`

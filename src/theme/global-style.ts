@@ -5,6 +5,8 @@ const { mediumGray } = themeColors
 const { headersFont, bodyFont } = themeFonts
 
 export const GlobalStyle = createGlobalStyle`
+
+@import url("");
   * {
     box-sizing: inherit;
   }
@@ -31,10 +33,12 @@ export const GlobalStyle = createGlobalStyle`
   }
   p {
     font-size: 1.6rem;
+    margin: 0.4em 0 0.2em;
   }
   img {
     object-fit: cover;
-    max-width: 100%;
+    width: 100%;
+    max-width: 100vw;
     margin: 0;
   }
   a {

@@ -4,8 +4,10 @@ import { themeColors } from "../../theme/theme-variables"
 import { Header3 } from "../Headers/Headers.ui"
 import { DiamondButton } from "../Buttons/DiamondButton.component"
 
-const { mediumBlue, mediumGray } = themeColors
+import { placeholders } from "../../helpers/placeholders"
 
+const { mediumBlue, mediumGray } = themeColors
+const { two } = placeholders
 const PodcastCardWrapper = styled.div``
 
 const Episode = styled.h5`
@@ -27,7 +29,7 @@ const placeholderImage = `https://images.unsplash.com/photo-1494256997604-768d1f
 export const PodcastCard = () => {
   return (
     <PodcastCardWrapper>
-      <img src={placeholderImage} alt="placeholder kitten" />
+      <img src={two} alt="placeholder kitten" />
       <Episode>Épisode 3</Episode>
       <PodcastName>
         un titre que je ne connais pas encore mais qui viendra bientôt
