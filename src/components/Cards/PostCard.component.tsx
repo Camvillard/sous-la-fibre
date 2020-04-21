@@ -18,8 +18,6 @@ const PostTitle = styled(Header4)`
 
 const PostThumbnail = styled.img`
   margin: 0;
-  width: 100vw;
-  margin-left: -5vw;
 `
 
 const Separator = styled.hr`

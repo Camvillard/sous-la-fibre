@@ -36,6 +36,8 @@ export const themeBreakpoints = {
   xlgScreen,
 }
 
+// const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
+
 export const themeColors = {
   brighBlue,
   mediumBlue,

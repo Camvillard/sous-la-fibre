@@ -30,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     color: ${mediumGray};
     font-family: ${bodyFont};
+    word-break: break-word;
   }
   p {
     font-size: 1.6rem;
@@ -71,6 +72,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${headersFont};
     letter-spacing: 1px;
     margin: 0.4em 0 0.2em;
+    font-feature-settings: "liga";
   }
   h5, h6 {
     font-family: ${bodyFont};

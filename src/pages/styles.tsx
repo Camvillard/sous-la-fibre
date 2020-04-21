@@ -11,11 +11,9 @@ const Styles = () => {
     <Fragment>
       <GlobalStyle />
       <Banner />
-      <MainContainer>
-        <Header1>titre principal</Header1>
-        <PodcastCard />
-        <PostCard />
-      </MainContainer>
+      <Header1>titre principal</Header1>
+      <PodcastCard />
+      <PostCard />
     </Fragment>
   )
 }
