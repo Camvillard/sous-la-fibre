@@ -41,13 +41,17 @@ const BlueLink = styled(Link)`
     margin: 8px 0;
   }
 `
-
-export const DiamondButton = () => {
+type DiamondButtonProps = {
+  toggleModal: () => void
+}
+export const DiamondButton = (props: DiamondButtonProps) => {
+  const { toggleModal } = props
   return (
     <DiamondButtonWrapper>
-      <BlueLink to={"#"}>écouter l'épisode</BlueLink>
+      <p onClick={toggleModal}>écouter l'épisode</p>
+      {/* <BlueLink to={"#"}>écouter l'épisode</BlueLink> */}
       <BlueLink to={"#"}>lire les articles associés</BlueLink>
-      <DiamondIcon />
+      <DiamondIcon width={84} height={100} />
     </DiamondButtonWrapper>
   )
 }

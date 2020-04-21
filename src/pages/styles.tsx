@@ -5,6 +5,7 @@ import { MainContainer } from "../components/Containers/Containers.ui"
 import { PodcastCard } from "../components/Cards/PodcastCard.component"
 import { PostCard } from "../components/Cards/PostCard.component"
 import { Banner } from "../components/Banner/Banner.component"
+import { PodcastModal } from "../components/PodcastModal/PodcastModal.component"
 
 const Styles = () => {
   return (
@@ -14,6 +15,7 @@ const Styles = () => {
       <Header1>titre principal</Header1>
       <PodcastCard />
       <PostCard />
+      <PodcastModal />
     </Fragment>
   )
 }

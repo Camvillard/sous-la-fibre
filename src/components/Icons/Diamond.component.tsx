@@ -1,10 +1,15 @@
 import React from "react"
 
-const DiamondIcon = () => {
+type DiamondProps = {
+  width: number
+  height: number
+}
+const DiamondIcon = (props: DiamondProps) => {
+  const { width, height } = props
   return (
     <svg
-      width="84"
-      height="100"
+      width={width}
+      height={height}
       viewBox="0 0 83 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

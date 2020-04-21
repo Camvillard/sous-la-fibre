@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { useMediaQuery } from "react-responsive"
 
@@ -8,6 +8,7 @@ import { DiamondButton } from "../Buttons/DiamondButton.component"
 import { placeholders } from "../../helpers/placeholders"
 import { Excerpt } from "./Cards.ui"
 import { MainContainer } from "../Containers/Containers.ui"
+import { PodcastModal } from "../PodcastModal/PodcastModal.component"
 
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
@@ -77,32 +78,42 @@ export const PodcastCard = () => {
     query: `(min-device-width: ${lgScreen})`,
   })
 
+  const [modalIsOpen, toggleModal] = useState(false)
+
   return (
-    <PodcastCardWrapper>
-      <ThumbnailContainer top={"0"} bottom={"0"}>
-        <PodcastThumbnail src={two} alt="placeholder kitten" />
-      </ThumbnailContainer>
-      {!isDesktop && <Episode>Épisode 3</Episode>}
-      <MainContainer top={isDesktop ? "0" : "-40px"} bottom={"0"}>
-        <PodcastInfoSection>
-          {isDesktop && <Episode>Épisode 3</Episode>}
-          <PodcastText>
-            <PodcastName>
-              un titre que je ne connais pas encore mais qui viendra bientôt
-            </PodcastName>
-            <Excerpt>
-              abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
-              L'artiste nous dévoile, entre autres, quelques morceaux de son
-              univers nostalgique et sensible, elle nous parle de ses
-              aspirations, de son désir d'exprimer des réalités parfois
-              douloureuses, de ses débuts avec le Polaroid et de sa série
-              documentaire Fovea à l'argentique noir et blanc qui met en lumière
-              des jeunes aveugles et malvoyants du Québec.
-            </Excerpt>
-          </PodcastText>
-          <DiamondButton />
-        </PodcastInfoSection>
-      </MainContainer>
-    </PodcastCardWrapper>
+    <>
+      <PodcastCardWrapper>
+        <ThumbnailContainer top={"0"} bottom={"0"}>
+          <PodcastThumbnail src={two} alt="placeholder kitten" />
+        </ThumbnailContainer>
+        {!isDesktop && <Episode>Épisode 3</Episode>}
+        <MainContainer top={isDesktop ? "0" : "-40px"} bottom={"0"}>
+          <PodcastInfoSection>
+            {isDesktop && <Episode>Épisode 3</Episode>}
+            <PodcastText>
+              <PodcastName>
+                un titre que je ne connais pas encore mais qui viendra bientôt
+              </PodcastName>
+              <Excerpt>
+                abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+                L'artiste nous dévoile, entre autres, quelques morceaux de son
+                univers nostalgique et sensible, elle nous parle de ses
+                aspirations, de son désir d'exprimer des réalités parfois
+                douloureuses, de ses débuts avec le Polaroid et de sa série
+                documentaire Fovea à l'argentique noir et blanc qui met en
+                lumière des jeunes aveugles et malvoyants du Québec.
+              </Excerpt>
+            </PodcastText>
+            <DiamondButton toggleModal={() => toggleModal(!modalIsOpen)} />
+          </PodcastInfoSection>
+        </MainContainer>
+      </PodcastCardWrapper>
+      {modalIsOpen && (
+        <PodcastModal
+          isOpen={modalIsOpen}
+          closeModal={() => toggleModal(false)}
+        />
+      )}
+    </>
   )
 }
