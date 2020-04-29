@@ -12,7 +12,6 @@ const Styles = () => {
       <GlobalStyle />
       <Banner />
       <Header1>titre principal</Header1>
-      <PodcastCard />
       <PostCard />
     </Fragment>
   )

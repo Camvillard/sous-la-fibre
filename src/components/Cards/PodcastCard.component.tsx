@@ -10,6 +10,7 @@ import { Excerpt } from "./Cards.ui"
 import { MainContainer } from "../Containers/Containers.ui"
 import { Link } from "gatsby"
 import { TPodcastData } from "../../models/podcast.model"
+import { createExcerpt } from "../../helpers/podcast.helpers"
 
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
@@ -17,6 +18,7 @@ const { mediumBlue, mediumGray, darkGray } = themeColors
 const { two } = placeholders
 
 const PodcastCardWrapper = styled.div`
+  margin: 32px 0;
   @media (min-width: ${mdScreen}) {
     display: flex;
     align-items: center;
@@ -55,6 +57,7 @@ const PodcastName = styled(Header3)`
   font-size: 2rem;
   max-width: 520px;
   color: ${darkGray};
+  margin: 12px 0;
 `
 
 const PodcastInfoSection = styled.div`
@@ -77,9 +80,13 @@ const PodcastThumbnail = styled.img`
 type TPodcastCardProps = {
   podcast: TPodcastData
   key: string
+  counter: number
 }
-export const PodcastCard = ({ podcast }: TPodcastCardProps) => {
+export const PodcastCard = ({ podcast, counter }: TPodcastCardProps) => {
   const { id, slug, title, content } = podcast
+
+  const excerpt = createExcerpt(content)
+
   const isDesktop = useMediaQuery({
     query: `(min-device-width: ${lgScreen})`,
   })
@@ -89,18 +96,18 @@ export const PodcastCard = ({ podcast }: TPodcastCardProps) => {
       <ThumbnailContainer top={"0"} bottom={"0"}>
         <PodcastThumbnail src={two} alt="placeholder kitten" />
       </ThumbnailContainer>
-      {!isDesktop && <Episode>Épisode 3</Episode>}
+      {!isDesktop && <Episode>Épisode {counter}</Episode>}
       <MainContainer top={isDesktop ? "-40px" : "-12px"} bottom={"0"}>
         <PodcastInfoSection>
-          {isDesktop && <Episode>Épisode 3</Episode>}
+          {isDesktop && <Episode>Épisode {counter}</Episode>}
           <PodcastText>
-            <Link to={slug}>
+            <Link to={"/episode/" + slug}>
               <PodcastName>
                 <span dangerouslySetInnerHTML={{ __html: title }} />
               </PodcastName>
             </Link>
             <Excerpt>
-              <span dangerouslySetInnerHTML={{ __html: content }} />
+              <span dangerouslySetInnerHTML={{ __html: excerpt }} />
             </Excerpt>
           </PodcastText>
           <DiamondButton />
