@@ -1,10 +1,13 @@
 import React from "react"
 
-const DiamondIcon = () => {
+type TDiamonIconProps = {
+  ratio: number
+}
+export const DiamondIcon = ({ ratio }: TDiamonIconProps) => {
   return (
     <svg
-      width="84"
-      height="100"
+      width={84 * ratio}
+      height={100 * ratio}
       viewBox="0 0 83 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -36,5 +39,3 @@ const DiamondIcon = () => {
     </svg>
   )
 }
-
-export default DiamondIcon

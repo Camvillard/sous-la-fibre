@@ -34,6 +34,35 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        baseUrl: "contenu.souslafibre.com",
+        // The protocol. This can be http or https.
+        protocol: "https",
+        hostingWPCOM: false,
+        useACF: true,
+        // Set cookies that should be send with requests to WordPress as key value pairs
+        verboseOutput: true,
+        // Set WP REST API routes whitelists
+        // and blacklists using glob patterns.
+        // Defaults to whitelist the routes shown
+        // in the example below.
+        // See: https://github.com/isaacs/minimatch
+        // Example:  `["/*/*/comments", "/yoast/**"]`
+        // ` will either include or exclude routes ending in `comments` and
+        // all routes that begin with `yoast` from fetch.
+        // Whitelisted routes using glob patterns
+        includedRoutes: [
+          "**/categories",
+          "**/posts",
+          "**/podcast",
+          "**/pages",
+          "**/media",
+          "**/tags",
+        ],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

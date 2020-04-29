@@ -1,8 +1,9 @@
 import { createGlobalStyle } from "styled-components"
-import { themeColors, themeFonts } from "./theme-variables"
+import { themeColors, themeFonts, themeBreakpoints } from "./theme-variables"
 
-const { mediumGray } = themeColors
+const { mediumGray, mediumBlue } = themeColors
 const { headersFont, bodyFont } = themeFonts
+const { smScreen, mdScreen, lgScreen } = themeBreakpoints
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -33,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     word-break: break-word;
   }
   p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin: 0.4em 0 0.2em;
   }
   img {
@@ -45,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     font-family: ${bodyFont};
+    color: ${mediumBlue}
   }
   a:active,
   a:hover {
@@ -80,5 +82,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0.4em 0 0.2em;
 
   }
+
+  @media (min-width: ${mdScreen}) {
+    p {
+      font-size: 1.6rem;
+    }
+  }
 `
-//

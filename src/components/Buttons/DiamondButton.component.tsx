@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-import DiamondIcon from "../Icons/Diamond.component"
+import { DiamondIcon } from "../Icons/Diamond.component"
 import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
 
 const { mediumBlue } = themeColors
@@ -47,7 +47,7 @@ export const DiamondButton = () => {
     <DiamondButtonWrapper>
       <BlueLink to={"#"}>écouter l'épisode</BlueLink>
       <BlueLink to={"#"}>lire les articles associés</BlueLink>
-      <DiamondIcon />
+      <DiamondIcon ratio={1} />
     </DiamondButtonWrapper>
   )
 }

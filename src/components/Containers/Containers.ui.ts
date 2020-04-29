@@ -11,3 +11,11 @@ export const MainContainer = styled.div`
   margin-top: ${(props: ContainerProps) => props.top || "24px"};
   margin-bottom: ${(props: ContainerProps) => props.bottom || "24px"};
 `
+
+export const FullScreenContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

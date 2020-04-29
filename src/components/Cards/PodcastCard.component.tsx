@@ -8,10 +8,12 @@ import { DiamondButton } from "../Buttons/DiamondButton.component"
 import { placeholders } from "../../helpers/placeholders"
 import { Excerpt } from "./Cards.ui"
 import { MainContainer } from "../Containers/Containers.ui"
+import { Link } from "gatsby"
+import { TPodcastData } from "../../models/podcast.model"
 
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
-const { mediumBlue, mediumGray } = themeColors
+const { mediumBlue, mediumGray, darkGray } = themeColors
 const { two } = placeholders
 
 const PodcastCardWrapper = styled.div`
@@ -52,6 +54,7 @@ const Episode = styled.span`
 const PodcastName = styled(Header3)`
   font-size: 2rem;
   max-width: 520px;
+  color: ${darkGray};
 `
 
 const PodcastInfoSection = styled.div`
@@ -71,8 +74,12 @@ const PodcastThumbnail = styled.img`
     height: 25vw;
   }
 `
-
-export const PodcastCard = () => {
+type TPodcastCardProps = {
+  podcast: TPodcastData
+  key: string
+}
+export const PodcastCard = ({ podcast }: TPodcastCardProps) => {
+  const { id, slug, title, content } = podcast
   const isDesktop = useMediaQuery({
     query: `(min-device-width: ${lgScreen})`,
   })
@@ -83,21 +90,17 @@ export const PodcastCard = () => {
         <PodcastThumbnail src={two} alt="placeholder kitten" />
       </ThumbnailContainer>
       {!isDesktop && <Episode>Épisode 3</Episode>}
-      <MainContainer top={isDesktop ? "0" : "-40px"} bottom={"0"}>
+      <MainContainer top={isDesktop ? "-40px" : "-12px"} bottom={"0"}>
         <PodcastInfoSection>
           {isDesktop && <Episode>Épisode 3</Episode>}
           <PodcastText>
-            <PodcastName>
-              un titre que je ne connais pas encore mais qui viendra bientôt
-            </PodcastName>
+            <Link to={slug}>
+              <PodcastName>
+                <span dangerouslySetInnerHTML={{ __html: title }} />
+              </PodcastName>
+            </Link>
             <Excerpt>
-              abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
-              L'artiste nous dévoile, entre autres, quelques morceaux de son
-              univers nostalgique et sensible, elle nous parle de ses
-              aspirations, de son désir d'exprimer des réalités parfois
-              douloureuses, de ses débuts avec le Polaroid et de sa série
-              documentaire Fovea à l'argentique noir et blanc qui met en lumière
-              des jeunes aveugles et malvoyants du Québec.
+              <span dangerouslySetInnerHTML={{ __html: content }} />
             </Excerpt>
           </PodcastText>
           <DiamondButton />
