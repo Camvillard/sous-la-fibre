@@ -50,6 +50,11 @@ export const indexPageQuery = graphql`
           slug
           title
           content
+          featured_media {
+            id
+            source_url
+            alt_text
+          }
         }
       }
     }

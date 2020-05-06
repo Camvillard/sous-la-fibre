@@ -5,7 +5,6 @@ import { useMediaQuery } from "react-responsive"
 import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
 import { Header3 } from "../Headers/Headers.ui"
 import { DiamondButton } from "../Buttons/DiamondButton.component"
-import { placeholders } from "../../helpers/placeholders"
 import { Excerpt } from "./Cards.ui"
 import { MainContainer } from "../Containers/Containers.ui"
 import { Link } from "gatsby"
@@ -15,21 +14,27 @@ import { createExcerpt } from "../../helpers/podcast.helpers"
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
 const { mediumBlue, mediumGray, darkGray } = themeColors
-const { two } = placeholders
 
 const PodcastCardWrapper = styled.div`
   margin: 32px 0;
-  @media (min-width: ${mdScreen}) {
+  @media (min-width: ${smScreen}) {
+    width: 90%;
     display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 32px auto 64px;
+  }
+  @media (min-width: ${mdScreen}) {
     align-items: center;
-    justify=content: flex-start;
-    max-width: 70vw;
-    margin: 32px 0 64px 8vw;
+    max-width: 82vw;
+  }
+  @media (min-width: ${lgScreen}) {
+    max-width: 72vw;
   }
 `
 
 const ThumbnailContainer = styled(MainContainer)`
-  @media (min-width: ${mdScreen}) {
+  @media (min-width: ${smScreen}) {
     width: auto;
   }
 `
@@ -44,7 +49,7 @@ const Episode = styled.span`
   font-size: 1.4rem;
   background: ${mediumBlue};
   font-weight: 400;
-  @media (min-width: ${mdScreen}) {
+  @media (min-width: ${smScreen}) {
     padding: 0;
     background: none;
     color: ${mediumBlue};
@@ -61,7 +66,7 @@ const PodcastName = styled(Header3)`
 `
 
 const PodcastInfoSection = styled.div`
-  @media (min-width: ${mdScreen}) {
+  @media (min-width: ${smScreen}) {
     margin-left: 24px;
     display: flex;
     flex-direction: column;
@@ -72,7 +77,7 @@ const PodcastInfoSection = styled.div`
 const PodcastText = styled.div``
 
 const PodcastThumbnail = styled.img`
-  @media (min-width: ${mdScreen}) {
+  @media (min-width: ${smScreen}) {
     width: 25vw;
     height: 25vw;
   }
@@ -83,23 +88,27 @@ type TPodcastCardProps = {
   counter: number
 }
 export const PodcastCard = ({ podcast, counter }: TPodcastCardProps) => {
-  const { slug, title, content } = podcast
+  const { slug, title, content, featured_media } = podcast
+  const { source_url: src, alt_text: alt } = featured_media
 
   const excerpt = createExcerpt(content)
 
   const isDesktop = useMediaQuery({
     query: `(min-device-width: ${lgScreen})`,
   })
+  const isTablet = useMediaQuery({
+    query: `(min-device-width: ${smScreen})`,
+  })
 
   return (
     <PodcastCardWrapper>
       <ThumbnailContainer top={"0"} bottom={"0"}>
-        <PodcastThumbnail src={two} alt="placeholder kitten" />
+        <PodcastThumbnail src={src} alt={alt} />
       </ThumbnailContainer>
-      {!isDesktop && <Episode>Épisode {counter}</Episode>}
-      <MainContainer top={isDesktop ? "-40px" : "-12px"} bottom={"0"}>
+      {!isTablet && <Episode>Épisode {counter}</Episode>}
+      <MainContainer top={isTablet ? "0" : "-12px"} bottom={"0"}>
         <PodcastInfoSection>
-          {isDesktop && <Episode>Épisode {counter}</Episode>}
+          {isTablet && <Episode>Épisode {counter}</Episode>}
           <PodcastText>
             <Link to={"/episode/" + slug}>
               <PodcastName>
