@@ -29,6 +29,7 @@ const IndexPage = ({ data }: IPageProps) => {
           />
         )
       })}
+
       <MainContainer id={"tous-les-articles"}>
         <HeaderWithCounter count={podcastCount}>
           tous les articles

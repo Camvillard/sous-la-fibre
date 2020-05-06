@@ -13,10 +13,12 @@ import { PodcastPageBack } from "../components/Podcast/PodcastPageBack.component
 
 interface IPodcastPageProps extends IPageProps {}
 
-const PodcastPage = ({ data }: IPodcastPageProps) => {
-  console.log("props", data)
+const PodcastPage = (props: IPodcastPageProps) => {
+  const { data, pathContext } = props
   const { wordpressWpPodcast, site } = data
-  const { id, content, title, artiste, acf } = wordpressWpPodcast
+  const { episode } = pathContext
+
+  const { content, title, tags, acf, featured_media } = wordpressWpPodcast
 
   return (
     <Fragment>
@@ -24,7 +26,11 @@ const PodcastPage = ({ data }: IPodcastPageProps) => {
       <PodcastPageWrapper>
         <PodcastInnerWrapper>
           <PodcastPageBack />
-          <PodcastPageHeader title={title} />
+          <PodcastPageHeader
+            title={title}
+            episode={episode}
+            thumbnail={featured_media}
+          />
           <PodcastPageDescription content={content} />
           <PodcastPageFooter acf={acf} />
         </PodcastInnerWrapper>
@@ -41,11 +47,20 @@ export const podcastPageQuery = graphql`
       id
       content
       title
-      artiste
+      tags {
+        id
+        slug
+        name
+      }
       acf {
         lienAusha
         musiqueAdditionnelle
         noteFinale
+      }
+      featured_media {
+        id
+        source_url
+        alt_text
       }
     }
     site {

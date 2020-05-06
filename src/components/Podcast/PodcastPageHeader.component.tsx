@@ -1,11 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 import { themeColors } from "../../theme/theme-variables"
+import { TFeaturedMedia } from "../../models/podcast.model"
 
 const { mediumGray, lightGray, gray } = themeColors
 
 type TPodcastPageHeader = {
   title: string
+  episode: number
+  thumbnail: TFeaturedMedia
 }
 
 const PodcastEpisode = styled.p`
@@ -18,11 +21,19 @@ const PodcastTitle = styled.h1`
   font-size: 2.2rem;
   margin: 0;
 `
-
-export const PodcastPageHeader = ({ title }: TPodcastPageHeader) => {
+const PodcastThumbnail = styled.img`
+  width: 72%;
+  margin: 16px 0 8px;
+`
+export const PodcastPageHeader = ({
+  title,
+  episode,
+  thumbnail,
+}: TPodcastPageHeader) => {
   return (
     <>
-      <PodcastEpisode>épisode 1</PodcastEpisode>
+      <PodcastEpisode>épisode {episode}</PodcastEpisode>
+      <PodcastThumbnail src={thumbnail.source_url} alt={thumbnail.alt_text} />
       <PodcastTitle>
         <span dangerouslySetInnerHTML={{ __html: title }} />
       </PodcastTitle>

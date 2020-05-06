@@ -4,6 +4,19 @@ export type TAcfData = {
   noteFinale: string
 }
 
+export type TTag = {
+  id: string
+  name: string
+  slug: string
+  count?: number
+}
+
+export type TFeaturedMedia = {
+  id?: string
+  source_url: string
+  alt_text: string
+}
+
 export type TPodcastData = {
   acf?: TAcfData
   slug?: string
@@ -11,4 +24,6 @@ export type TPodcastData = {
   content: string
   id: string
   title: string
+  tags?: TTag[]
+  featured_media?: TFeaturedMedia
 }

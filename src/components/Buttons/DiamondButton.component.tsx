@@ -42,10 +42,13 @@ const BlueLink = styled(Link)`
   }
 `
 
-export const DiamondButton = () => {
+type TDiamondButtonProps = {
+  podcastLink: string
+}
+export const DiamondButton = ({ podcastLink }: TDiamondButtonProps) => {
   return (
     <DiamondButtonWrapper>
-      <BlueLink to={"#"}>écouter l'épisode</BlueLink>
+      <BlueLink to={`/episode/${podcastLink}`}>écouter l'épisode</BlueLink>
       <BlueLink to={"#"}>lire les articles associés</BlueLink>
       <DiamondIcon ratio={1} />
     </DiamondButtonWrapper>

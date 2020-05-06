@@ -7,6 +7,13 @@ export type TPageData = {
   site: TSiteData
 }
 
+export type TPageContext = {
+  episode: number
+  id: string
+  slug: string
+}
+
 export interface IPageProps {
   data: TPageData
+  pathContext: TPageContext
 }

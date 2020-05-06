@@ -83,7 +83,7 @@ type TPodcastCardProps = {
   counter: number
 }
 export const PodcastCard = ({ podcast, counter }: TPodcastCardProps) => {
-  const { id, slug, title, content } = podcast
+  const { slug, title, content } = podcast
 
   const excerpt = createExcerpt(content)
 
@@ -110,7 +110,7 @@ export const PodcastCard = ({ podcast, counter }: TPodcastCardProps) => {
               <span dangerouslySetInnerHTML={{ __html: excerpt }} />
             </Excerpt>
           </PodcastText>
-          <DiamondButton />
+          <DiamondButton podcastLink={slug} />
         </PodcastInfoSection>
       </MainContainer>
     </PodcastCardWrapper>
