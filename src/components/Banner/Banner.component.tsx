@@ -124,6 +124,6 @@ const DesktopBanner = () => {
 }
 
 export const Banner = () => {
-  const isDesktop = useMediaQuery({ query: `(min-width: ${lgScreen})` })
+  const isDesktop = useMediaQuery({ query: `(min-device-width: ${lgScreen})` })
   return isDesktop ? <DesktopBanner /> : <MobileBanner />
 }
