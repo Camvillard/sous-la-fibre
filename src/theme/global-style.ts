@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 import { themeColors, themeFonts, themeBreakpoints } from "./theme-variables"
 
-const { mediumGray, mediumBlue } = themeColors
+const { mediumGray, mediumBlue, darkGray } = themeColors
 const { headersFont, bodyFont } = themeFonts
 const { smScreen, mdScreen, lgScreen } = themeBreakpoints
 
@@ -40,7 +40,7 @@ export const GlobalStyle = createGlobalStyle`
   img {
     object-fit: cover;
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     margin: 0;
   }
   a {
@@ -72,11 +72,13 @@ export const GlobalStyle = createGlobalStyle`
   }
   h1, h2, h3, h4 {
     font-family: ${headersFont};
+    color: ${darkGray};
     letter-spacing: 1px;
     margin: 0.4em 0 0.2em;
     font-feature-settings: "liga";
   }
   h5, h6 {
+    color: ${darkGray};
     font-family: ${bodyFont};
     letter-spacing: 1px;
     margin: 0.4em 0 0.2em;

@@ -10,6 +10,8 @@ import {
 import { PodcastPageDescription } from "../components/Podcast/PodcastPageDescription.component"
 import { PodcastPageFooter } from "../components/Podcast/PodcastPageFooter.component"
 import { PodcastPageBack } from "../components/Podcast/PodcastPageBack.component"
+import SEO from "../components/Seo/Seo.component"
+import { createExcerpt } from "../helpers/podcast.helpers"
 
 interface IPodcastPageProps extends IPageProps {}
 
@@ -20,9 +22,12 @@ const PodcastPage = (props: IPodcastPageProps) => {
 
   const { content, title, tags, acf, featured_media } = wordpressWpPodcast
 
+  const excerpt = createExcerpt(content)
+
   return (
     <Fragment>
       <GlobalStyle />
+      <SEO title={title} description={excerpt} lang={"fr"} />
       <PodcastPageWrapper>
         <PodcastInnerWrapper>
           <PodcastPageBack />
