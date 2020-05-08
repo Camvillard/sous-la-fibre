@@ -8,6 +8,7 @@ type SEOProps = {
   meta?: any
   title?: string
 }
+
 const SEO = ({ description, lang, meta, title }: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
@@ -65,7 +66,7 @@ const SEO = ({ description, lang, meta, title }: SEOProps) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]}
     />
   )
 }
