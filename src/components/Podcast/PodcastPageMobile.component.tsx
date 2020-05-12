@@ -6,7 +6,7 @@ import { PodcastPageHeader } from "./PodcastPageHeader.component"
 import { PodcastPageDescription } from "./PodcastPageDescription.component"
 import { PodcastPageFooter } from "./PodcastPageFooter.component"
 import { TPodcastData } from "../../models/podcast.model"
-import { PodcastPageLinks } from "./PodcastPageLinks.component"
+import { PodcastPageMobileLinks } from "./PodcastPageLinks.component"
 import { PodcastThumbnail } from "./PodcastpageThumbnail.ui"
 
 interface IPodcastPageProps {
@@ -29,7 +29,7 @@ export const PodcastPageMobile = ({ podcast, episode }: IPodcastPageProps) => {
           thumbnail={featured_media}
         />
         <PodcastPageDescription content={content} />
-        <PodcastPageLinks links={acf} />
+        <PodcastPageMobileLinks links={acf} />
         <PodcastPageFooter acf={acf} />
       </PodcastInnerWrapper>
     </PodcastPageWrapper>

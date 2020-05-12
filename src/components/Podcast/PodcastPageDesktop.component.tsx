@@ -6,13 +6,13 @@ import { PodcastPageWrapper, PodcastInnerWrapper } from "./PodcastPage.ui"
 import { PodcastPageBack } from "./PodcastPageBack.component"
 import { PodcastPageHeader } from "./PodcastPageHeader.component"
 import { PodcastPageDescription } from "./PodcastPageDescription.component"
-import { PodcastPageLinks } from "./PodcastPageLinks.component"
+import { PodcastPageDesktopLInks } from "./PodcastPageLinks.component"
 import { PodcastPageFooter } from "./PodcastPageFooter.component"
 import { GridContainer } from "../Containers/Containers.ui"
 import { PodcastThumbnail } from "./PodcastpageThumbnail.ui"
 
 const PodcastGridContent = styled(GridContainer)`
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2.5fr 1fr;
   grid-gap: 24px;
 `
 
@@ -40,7 +40,7 @@ export const PodcastPageDesktop = ({ podcast, episode }: IPodcastPageProps) => {
           </div>
           <div>
             <PodcastThumbnail src={src} alt={alt} />
-            <PodcastPageLinks links={acf} />
+            <PodcastPageDesktopLInks links={acf} />
           </div>
         </PodcastGridContent>
       </PodcastInnerWrapper>
