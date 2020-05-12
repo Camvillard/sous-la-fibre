@@ -25,7 +25,7 @@ const DiamondButtonWrapper = styled.div`
 
   @media (min-width: ${mdScreen}) {
     align-items: flex-start;
-    margin-bottom: -32px;
+    margin-bottom: -26px;
     svg {
       left: -48px;
     }

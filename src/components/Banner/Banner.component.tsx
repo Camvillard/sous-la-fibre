@@ -76,7 +76,7 @@ const MobileBanner = () => {
 
       <MainContainer bottom={"0"} top={"0"}>
         <HomeLink to={"#"}>parcourir les épisodes</HomeLink>
-        <HomeLink to={"#"}>lire les articles</HomeLink>
+        {/* <HomeLink to={"#"}>lire les articles</HomeLink> */}
         <HomeLink to={"#"}>à propos</HomeLink>
         <HomeLink to={"#"}>contact</HomeLink>
       </MainContainer>
@@ -115,7 +115,7 @@ const DesktopBanner = () => {
       </DesktopLogoWrapper>
       <DesktopMenuWrapper>
         <HomeLink to={"/#tous-les-episodes"}>parcourir les épisodes</HomeLink>
-        <HomeLink to={"/#tous-les-articles"}>lire les articles</HomeLink>
+        {/* <HomeLink to={"/#tous-les-articles"}>lire les articles</HomeLink> */}
         <HomeLink to={"/a-propos"}>à propos</HomeLink>
         <HomeLink to={"/contact"}>contact</HomeLink>
       </DesktopMenuWrapper>
@@ -125,5 +125,6 @@ const DesktopBanner = () => {
 
 export const Banner = () => {
   const isDesktop = useMediaQuery({ query: `(min-device-width: ${lgScreen})` })
+
   return isDesktop ? <DesktopBanner /> : <MobileBanner />
 }

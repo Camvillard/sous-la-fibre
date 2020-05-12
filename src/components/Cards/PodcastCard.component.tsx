@@ -20,22 +20,17 @@ const PodcastCardWrapper = styled.div`
   @media (min-width: ${smScreen}) {
     width: 90%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     margin: 32px auto 64px;
   }
   @media (min-width: ${mdScreen}) {
-    align-items: center;
+    margin-top: 92px;
+    align-items: stretch;
     max-width: 82vw;
   }
   @media (min-width: ${lgScreen}) {
     max-width: 72vw;
-  }
-`
-
-const ThumbnailContainer = styled(MainContainer)`
-  @media (min-width: ${smScreen}) {
-    width: auto;
   }
 `
 
@@ -65,7 +60,7 @@ const PodcastName = styled(Header3)`
   margin: 12px 0;
 `
 
-const PodcastInfoSection = styled.div`
+const PodcastInfoSection = styled(MainContainer)`
   @media (min-width: ${smScreen}) {
     margin-left: 24px;
     display: flex;
@@ -74,12 +69,25 @@ const PodcastInfoSection = styled.div`
   }
 `
 
-const PodcastText = styled.div``
+const PodcastText = styled.div`
+  @media (min-width: ${mdScreen}) {
+    margin-top: 24px;
+  }
+`
 
 const PodcastThumbnail = styled.img`
+  width: 92vw;
+  height: 92vw;
+  display: block;
+  margin: auto;
+  flex-shrink: 1;
   @media (min-width: ${smScreen}) {
-    width: 25vw;
-    height: 25vw;
+    width: 50%;
+    height: 50%;
+  }
+  @media (min-width: ${mdScreen}) {
+    width: 44%;
+    height: 44%;
   }
 `
 type TPodcastCardProps = {
@@ -102,26 +110,22 @@ export const PodcastCard = ({ podcast, counter }: TPodcastCardProps) => {
 
   return (
     <PodcastCardWrapper>
-      <ThumbnailContainer top={"0"} bottom={"0"}>
-        <PodcastThumbnail src={src} alt={alt} />
-      </ThumbnailContainer>
+      <PodcastThumbnail src={src} alt={alt} />
       {!isTablet && <Episode>Épisode {counter}</Episode>}
-      <MainContainer top={isTablet ? "0" : "-12px"} bottom={"0"}>
-        <PodcastInfoSection>
+      <PodcastInfoSection top={isTablet ? "0" : "-12px"} bottom={"0"}>
+        <PodcastText>
           {isTablet && <Episode>Épisode {counter}</Episode>}
-          <PodcastText>
-            <Link to={"/episode/" + slug}>
-              <PodcastName>
-                <span dangerouslySetInnerHTML={{ __html: title }} />
-              </PodcastName>
-            </Link>
-            <Excerpt>
-              <span dangerouslySetInnerHTML={{ __html: excerpt }} />
-            </Excerpt>
-          </PodcastText>
-          <DiamondButton podcastLink={slug} />
-        </PodcastInfoSection>
-      </MainContainer>
+          <Link to={"/episode/" + slug}>
+            <PodcastName>
+              <span dangerouslySetInnerHTML={{ __html: title }} />
+            </PodcastName>
+          </Link>
+          <Excerpt>
+            <span dangerouslySetInnerHTML={{ __html: excerpt }} />
+          </Excerpt>
+        </PodcastText>
+        <DiamondButton podcastLink={slug} />
+      </PodcastInfoSection>
     </PodcastCardWrapper>
   )
 }
