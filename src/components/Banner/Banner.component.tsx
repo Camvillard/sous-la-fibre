@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useMediaQuery } from "react-responsive"
 
@@ -144,7 +144,18 @@ const DesktopBanner = () => {
 }
 
 export const Banner = () => {
-  const isDesktop = useMediaQuery({ query: `(min-device-width: ${lgScreen})` })
+  const [isMounted, setMouted] = useState(false)
+  console.log("gdsd", isMounted)
 
-  return isDesktop ? <DesktopBanner /> : <MobileBanner />
+  useEffect(() => {
+    setMouted(true)
+    return () => {
+      setMouted(false)
+    }
+  }, [])
+  const isDesktop = useMediaQuery({ query: `(min-device-width: ${lgScreen})` })
+  console.log("loading", isDesktop)
+  console.log(isDesktop)
+
+  return isMounted && (isDesktop ? <DesktopBanner /> : <MobileBanner />)
 }
