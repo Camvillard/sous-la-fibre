@@ -19,3 +19,9 @@ export const FullScreenContainer = styled.div`
   align-items: center;
   justify-content: center;
 `
+export const FlexboxContainer = styled.div`
+  display: flex;
+`
+export const GridContainer = styled.div`
+  display: grid;
+`

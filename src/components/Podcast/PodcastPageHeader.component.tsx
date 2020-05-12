@@ -1,9 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-import { themeColors } from "../../theme/theme-variables"
+import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
 import { TFeaturedMedia } from "../../models/podcast.model"
 
 const { mediumGray, lightGray, gray } = themeColors
+const { mdScreen } = themeBreakpoints
 
 type TPodcastPageHeader = {
   title: string
@@ -24,6 +25,9 @@ const PodcastTitle = styled.h1`
 const PodcastThumbnail = styled.img`
   width: 100%;
   margin: 16px auto 8px;
+  @media (min-width: ${mdScreen}) {
+    width: 80%;
+  }
 `
 export const PodcastPageHeader = ({
   title,
@@ -33,7 +37,6 @@ export const PodcastPageHeader = ({
   return (
     <>
       <PodcastEpisode>épisode {episode}</PodcastEpisode>
-      <PodcastThumbnail src={thumbnail.source_url} alt={thumbnail.alt_text} />
       <PodcastTitle>
         <span dangerouslySetInnerHTML={{ __html: title }} />
       </PodcastTitle>

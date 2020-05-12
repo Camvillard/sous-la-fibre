@@ -39,7 +39,7 @@ const PodcastPage = (props: IPodcastPageProps) => {
       <GlobalStyle />
       <SEO title={title} description={excerpt} lang={"fr"} />
       {isDesktop ? (
-        <PodcastPageDesktop podcast={wordpressWpPodcast} />
+        <PodcastPageDesktop podcast={wordpressWpPodcast} episode={episode} />
       ) : (
         <PodcastPageMobile podcast={wordpressWpPodcast} episode={episode} />
       )}
