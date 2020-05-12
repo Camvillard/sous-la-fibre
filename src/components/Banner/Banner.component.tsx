@@ -49,6 +49,14 @@ const LogoImage = styled.img`
     height: 72vw;
     width: 72vw;
   }
+
+  @media (min-width: ${lgScreen}) {
+    height: 90%;
+    width: 90%;
+    grid-column: 1 / span 1;
+    align-self: center;
+    justify-self: center;
+  }
 `
 const HomeLink = styled(Link)`
   font-size: 2.4rem;
@@ -84,42 +92,54 @@ const MobileBanner = () => {
   )
 }
 
+const FullScreenGrid = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background: ${coral};
+`
+
 const DesktopLogoWrapper = styled.div`
-  position: absolute;
-  left: calc(100vh - ${paddingAround * 4}px);
-  top: ${paddingAround}px;
+  margin-top: 8vh;
+  margin-left: -22%;
   @media (min-width: ${xlgScreen}) {
-    left: calc(100vh + ${paddingAround * 2}px);
   }
 `
 
 const DesktopMenuWrapper = styled.div`
-  position: absolute;
-  left: calc(100vh - ${paddingAround * 4}px);
-  bottom: ${paddingAround * 2}px;
+  margin-bottom: 8vh;
+  margin-left: -22%;
   @media (min-width: ${xlgScreen}) {
-    left: calc(100vh + ${paddingAround * 2}px);
   }
+`
+
+const RightGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 const DesktopBanner = () => {
   return (
-    <FullScreenWrapper>
+    <FullScreenGrid>
       <LogoImage
         src={
           "https://contenu.souslafibre.com/wp-content/uploads/2020/04/sous-la-fibre_sans-texte.jpg"
         }
       />
-      <DesktopLogoWrapper>
-        <Logo />
-      </DesktopLogoWrapper>
-      <DesktopMenuWrapper>
-        <HomeLink to={"/#tous-les-episodes"}>parcourir les épisodes</HomeLink>
-        {/* <HomeLink to={"/#tous-les-articles"}>lire les articles</HomeLink> */}
-        <HomeLink to={"/a-propos"}>à propos</HomeLink>
-        <HomeLink to={"/contact"}>contact</HomeLink>
-      </DesktopMenuWrapper>
-    </FullScreenWrapper>
+      <RightGrid>
+        <DesktopLogoWrapper>
+          <Logo />
+        </DesktopLogoWrapper>
+        <DesktopMenuWrapper>
+          <HomeLink to={"/#tous-les-episodes"}>parcourir les épisodes</HomeLink>
+          {/* <HomeLink to={"/#tous-les-articles"}>lire les articles</HomeLink> */}
+          <HomeLink to={"/a-propos"}>à propos</HomeLink>
+          <HomeLink to={"/contact"}>contact</HomeLink>
+        </DesktopMenuWrapper>
+      </RightGrid>
+    </FullScreenGrid>
   )
 }
 
