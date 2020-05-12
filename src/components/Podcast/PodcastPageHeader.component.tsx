@@ -22,8 +22,8 @@ const PodcastTitle = styled.h1`
   margin: 0;
 `
 const PodcastThumbnail = styled.img`
-  width: 72%;
-  margin: 16px 0 8px;
+  width: 100%;
+  margin: 16px auto 8px;
 `
 export const PodcastPageHeader = ({
   title,

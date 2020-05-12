@@ -1,5 +1,7 @@
 import React, { Fragment } from "react"
 import { graphql } from "gatsby"
+import { useMediaQuery } from "react-responsive"
+
 import { PodcastPageHeader } from "../components/Podcast/PodcastPageHeader.component"
 import { IPageProps } from "../models/page.model"
 import { GlobalStyle } from "../theme/global-style"
@@ -12,6 +14,11 @@ import { PodcastPageFooter } from "../components/Podcast/PodcastPageFooter.compo
 import { PodcastPageBack } from "../components/Podcast/PodcastPageBack.component"
 import SEO from "../components/Seo/Seo.component"
 import { createExcerpt } from "../helpers/podcast.helpers"
+import { themeBreakpoints } from "../theme/theme-variables"
+import { PodcastPageDesktop } from "../components/Podcast/PodcastPageDesktop.component"
+import { PodcastPageMobile } from "../components/Podcast/PodcastPageMobile.component"
+
+const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
 interface IPodcastPageProps extends IPageProps {}
 
@@ -24,23 +31,19 @@ const PodcastPage = (props: IPodcastPageProps) => {
 
   const excerpt = createExcerpt(content)
 
+  const isDesktop = useMediaQuery({
+    query: `(min-device-width: ${mdScreen})`,
+  })
   return (
-    <Fragment>
+    <>
       <GlobalStyle />
       <SEO title={title} description={excerpt} lang={"fr"} />
-      <PodcastPageWrapper>
-        <PodcastInnerWrapper>
-          <PodcastPageBack />
-          <PodcastPageHeader
-            title={title}
-            episode={episode}
-            thumbnail={featured_media}
-          />
-          <PodcastPageDescription content={content} />
-          <PodcastPageFooter acf={acf} />
-        </PodcastInnerWrapper>
-      </PodcastPageWrapper>
-    </Fragment>
+      {isDesktop ? (
+        <PodcastPageDesktop podcast={wordpressWpPodcast} />
+      ) : (
+        <PodcastPageMobile podcast={wordpressWpPodcast} episode={episode} />
+      )}
+    </>
   )
 }
 
