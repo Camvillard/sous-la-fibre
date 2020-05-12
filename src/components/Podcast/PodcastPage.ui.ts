@@ -10,8 +10,8 @@ export const PodcastPageWrapper = styled(FullScreenContainer)`
 
 export const PodcastInnerWrapper = styled.div`
   background: white;
-  width: 80vw;
-  max-height: 88vh;
+  width: 86vw;
+  max-height: 92vh;
   overflow-y: scroll;
   padding: 0 16px;
   border-top: 8px solid white;
