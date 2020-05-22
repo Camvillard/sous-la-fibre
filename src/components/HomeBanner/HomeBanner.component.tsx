@@ -166,7 +166,7 @@ export const HomeBanner = () => {
         />
       </GridImageWrapper>
       <GridNavWrapper>
-        <HomeLink to={"#"}>parcourir les épisodes</HomeLink>
+        <HomeLink to={"#tous-les-episodes"}>parcourir les épisodes</HomeLink>
         {/* <HomeLink to={"#"}>lire les articles</HomeLink> */}
         {/* <HomeLink to={"#"}>à propos</HomeLink> */}
         <HomeNav onClick={toggleAbout}>
