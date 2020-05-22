@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
 import { Logo } from "../Logo/Logo.component"
@@ -114,12 +114,45 @@ const HomeLink = styled(Link)`
     font-size: 4.4rem;
   }
   @media (min-width: ${lgScreen}) {
+    font-size: 4.8rem;
+    text-align: left;
+  }
+`
+
+const HomeNav = styled.p`
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: ${darkGray};
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
+  @media (min-width: ${smScreen}) {
+    font-size: 2.8rem;
+  }
+  @media (min-width: ${mdScreen}) and (orientation: landscape) {
+    text-align: left;
+    font-size: 3.4rem;
+  }
+  @media (min-width: ${mdScreen}) and (orientation: portrait) {
     font-size: 4.4rem;
+  }
+  @media (min-width: ${lgScreen}) {
+    font-size: 4.8rem;
     text-align: left;
   }
 `
 
 export const HomeBanner = () => {
+  const [showEmail, setShowEmail] = useState(false)
+  const [showAbout, setShowAbout] = useState(false)
+  const toggleEmail = () => {
+    setShowEmail(!showEmail)
+  }
+  const toggleAbout = () => {
+    setShowAbout(!showAbout)
+  }
   return (
     <FullScreenGrid>
       <GridLogoWrapper>
@@ -135,8 +168,13 @@ export const HomeBanner = () => {
       <GridNavWrapper>
         <HomeLink to={"#"}>parcourir les épisodes</HomeLink>
         {/* <HomeLink to={"#"}>lire les articles</HomeLink> */}
-        <HomeLink to={"#"}>à propos</HomeLink>
-        <HomeLink to={"#"}>contact</HomeLink>
+        {/* <HomeLink to={"#"}>à propos</HomeLink> */}
+        <HomeNav onClick={toggleAbout}>
+          {showAbout ? "prochainement !" : "à propos"}
+        </HomeNav>
+        <HomeNav onClick={toggleEmail}>
+          {showEmail ? "allo@souslafibre.com" : "contact"}
+        </HomeNav>
       </GridNavWrapper>
     </FullScreenGrid>
   )
