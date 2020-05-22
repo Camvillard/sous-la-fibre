@@ -6,6 +6,7 @@ import { IPageProps } from "../models/page.model"
 import { MainContainer } from "../components/Containers/Containers.ui"
 import { HeaderWithCounter } from "../components/Headers/HeaderWithCounter.component"
 import { Banner } from "../components/Banner/Banner.component"
+import { HomeBanner } from "../components/HomeBanner/HomeBanner.component"
 
 const IndexPage = ({ data }: IPageProps) => {
   const { allWordpressWpPodcast } = data
@@ -13,7 +14,8 @@ const IndexPage = ({ data }: IPageProps) => {
   let counter = podcastCount + 1
   return (
     <Layout>
-      <Banner />
+      {/* <Banner /> */}
+      <HomeBanner />
       <MainContainer id={"tous-les-episodes"}>
         <HeaderWithCounter count={podcastCount}>
           tous les épisodes

@@ -38,6 +38,7 @@ const BlueLink = styled(Link)`
   font-weight: 600;
   margin: 8px auto;
   @media (min-width: ${mdScreen}) {
+    font-size: 1.2em;
     margin: 8px 0;
   }
 `
@@ -49,7 +50,7 @@ export const DiamondButton = ({ podcastLink }: TDiamondButtonProps) => {
   return (
     <DiamondButtonWrapper>
       <BlueLink to={`/episode/${podcastLink}`}>écouter l'épisode</BlueLink>
-      <BlueLink to={"#"}>lire les articles associés</BlueLink>
+      {/* <BlueLink to={"#"}>lire les articles associés</BlueLink> */}
       <DiamondIcon ratio={1} />
     </DiamondButtonWrapper>
   )

@@ -9,19 +9,14 @@ const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
 const LogoWrapper = styled.div``
 
-const LogoText = styled.h2`
-  font-size: 5.2rem;
-  color: ${darkGray};
-  margin: 0;
-`
-
 const Baseline = styled.p`
   color: ${darkGray};
   font-size: 1.6rem;
   max-width: 270px;
 
   @media (min-width: ${smScreen}) {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    max-width: 100%;
   }
 
   @media (min-width: ${lgScreen}) {
@@ -29,10 +24,19 @@ const Baseline = styled.p`
   }
 `
 
+const LogoImage = styled.img`
+  filter: invert(1);
+  display: block;
+  margin: auto;
+`
+
 export const Logo = () => {
   return (
     <LogoWrapper>
-      <LogoText>Sous la fibre</LogoText>
+      <LogoImage
+        src="https://contenu.souslafibre.com/wp-content/uploads/2020/05/logo_blanc.png"
+        alt="logo sous la fibre"
+      />
       <Baseline>le podcast qui donne la parole aux artistes visuels</Baseline>
     </LogoWrapper>
   )
