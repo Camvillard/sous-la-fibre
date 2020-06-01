@@ -49,7 +49,7 @@ const GridLogoWrapper = styled.div`
 `
 
 const GridImageWrapper = styled.div`
-  width: 92%;
+  yarnwidth: 92%;
   align-self: center;
   margin: 0 auto;
   @media (min-width: ${mdScreen}) and (orientation: landscape) {
@@ -173,7 +173,7 @@ export const HomeBanner = () => {
           {showAbout ? "prochainement !" : "à propos"}
         </HomeNav>
         <HomeNav onClick={toggleEmail}>
-          {showEmail ? "allo@souslafibre.com" : "contact"}
+          {showEmail ? "souslafibre@gmail.com" : "contact"}
         </HomeNav>
       </GridNavWrapper>
     </FullScreenGrid>

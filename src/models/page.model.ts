@@ -1,9 +1,9 @@
-import { TPodcastData } from "./podcast.model"
+import { PodcastData } from "./podcast.model"
 import { TSiteData } from "./site.model"
 
 export type TPageData = {
   allWordpressWpPodcast?: any
-  wordpressWpPodcast?: TPodcastData
+  wordpressWpPodcast?: PodcastData
   site: TSiteData
 }
 

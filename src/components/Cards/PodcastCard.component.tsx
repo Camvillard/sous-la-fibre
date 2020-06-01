@@ -8,7 +8,7 @@ import { DiamondButton } from "../Buttons/DiamondButton.component"
 import { Excerpt } from "./Cards.ui"
 import { MainContainer } from "../Containers/Containers.ui"
 import { Link } from "gatsby"
-import { TPodcastData } from "../../models/podcast.model"
+import { PodcastData } from "../../models/podcast.model"
 import { createExcerpt } from "../../helpers/podcast.helpers"
 
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
@@ -91,7 +91,7 @@ const PodcastThumbnail = styled.img`
   }
 `
 type TPodcastCardProps = {
-  podcast: TPodcastData
+  podcast: PodcastData
   key: string
   counter: number
 }

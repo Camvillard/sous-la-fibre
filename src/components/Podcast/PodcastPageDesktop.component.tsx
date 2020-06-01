@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { TPodcastData } from "../../models/podcast.model"
+import { PodcastData } from "../../models/podcast.model"
 import { PodcastPageWrapper, PodcastInnerWrapper } from "./PodcastPage.ui"
 import { PodcastPageBack } from "./PodcastPageBack.component"
 import { PodcastPageHeader } from "./PodcastPageHeader.component"
@@ -10,6 +10,7 @@ import { PodcastPageDesktopLInks } from "./PodcastPageLinks.component"
 import { PodcastPageFooter } from "./PodcastPageFooter.component"
 import { GridContainer } from "../Containers/Containers.ui"
 import { PodcastThumbnail } from "./PodcastpageThumbnail.ui"
+import { PodcastWidget } from "./PodcastWidget.component"
 
 const PodcastGridContent = styled(GridContainer)`
   grid-template-columns: 2.5fr 1fr;
@@ -17,12 +18,13 @@ const PodcastGridContent = styled(GridContainer)`
 `
 
 interface IPodcastPageProps {
-  podcast: TPodcastData
+  podcast: PodcastData
   episode: number
 }
 
 export const PodcastPageDesktop = ({ podcast, episode }: IPodcastPageProps) => {
   const { title, featured_media, content, acf } = podcast
+  const { idAusha } = acf
   const { source_url: src, alt_text: alt } = featured_media
   return (
     <PodcastPageWrapper>
@@ -36,6 +38,7 @@ export const PodcastPageDesktop = ({ podcast, episode }: IPodcastPageProps) => {
               thumbnail={featured_media}
             />
             <PodcastPageDescription content={content} />
+            <PodcastWidget podcastId={idAusha} />
             <PodcastPageFooter acf={acf} />
           </div>
           <div>

@@ -62,6 +62,7 @@ export const podcastPageQuery = graphql`
       }
       acf {
         lienAusha
+        idAusha
         musiqueAdditionnelle
         noteFinale
       }
