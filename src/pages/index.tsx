@@ -15,7 +15,6 @@ const IndexPage = ({ data }: IPageProps) => {
   let counter = podcastCount + 1
   return (
     <Layout>
-      {/* <Banner /> */}
       <HomeBanner />
       <MainContainer id={"tous-les-episodes"}>
         <HeaderWithCounter count={podcastCount}>

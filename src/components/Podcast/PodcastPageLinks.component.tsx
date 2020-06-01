@@ -52,7 +52,7 @@ export const PodcastPageMobileLinks = ({ links }: TPodcastPageLinksProps) => {
   return (
     <ListenWrapper>
       <ToggleListen onClick={toggle}>
-        {isOpen ? "fermer" : "écouter l'épisode"}
+        {isOpen ? "fermer" : "écouter sur d'autres plateformes"}
       </ToggleListen>
       {isOpen && <PodcastListLinks links={links} />}
     </ListenWrapper>
@@ -62,7 +62,7 @@ export const PodcastPageMobileLinks = ({ links }: TPodcastPageLinksProps) => {
 export const PodcastPageDesktopLInks = ({ links }: TPodcastPageLinksProps) => {
   return (
     <ListenWrapper>
-      <ToggleListen>écouter l'épisode</ToggleListen>
+      <ToggleListen>écouter sur d'autres plateformes</ToggleListen>
       <PodcastListLinks links={links} />
     </ListenWrapper>
   )

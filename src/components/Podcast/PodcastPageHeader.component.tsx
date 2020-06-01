@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
-import { TFeaturedMedia } from "../../models/podcast.model"
+import { FeaturedMedia } from "../../models/podcast.model"
 
 const { mediumGray, lightGray, gray } = themeColors
 const { mdScreen } = themeBreakpoints
@@ -9,7 +9,7 @@ const { mdScreen } = themeBreakpoints
 type TPodcastPageHeader = {
   title: string
   episode: number
-  thumbnail: TFeaturedMedia
+  thumbnail: FeaturedMedia
 }
 
 const PodcastEpisode = styled.p`
