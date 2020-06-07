@@ -4,6 +4,8 @@ import { Header4 } from "../Headers/Headers.ui"
 import { placeholders } from "../../helpers/placeholders"
 import { Excerpt } from "./Cards.ui"
 import { themeColors, themeFonts } from "../../theme/theme-variables"
+import { WordpressPost } from "../../models/post.model"
+import { createExcerpt } from "../../helpers/podcast.helpers"
 
 const { mediumBlue } = themeColors
 const { accentFont } = themeFonts
@@ -45,20 +47,25 @@ const PostTag = styled.p`
   font-family: ${accentFont};
   font-size: 1.2rem;
 `
+type PostCardProps = {
+  post: WordpressPost
+}
+export const PostCard = ({ post }: PostCardProps) => {
+  const { title, content, date, featured_media } = post
+  const thumbnail = featured_media.source_url
+  const excerpt = createExcerpt(content)
 
-export const PostCard = () => {
   return (
     <PostCardWrapper>
-      <PostThumbnail src={placeholders.one} />
-      <PostTitle>titre de l'article</PostTitle>
+      <PostThumbnail src={thumbnail} alt={title} />
+      <PostTitle>
+        <span dangerouslySetInnerHTML={{ __html: title }} />
+      </PostTitle>
       <Excerpt>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque
-        assumenda, voluptatem, fugiat quaerat praesentium minus quo odit eaque
-        laudantium magni reiciendis ullam delectus nostrum deserunt beatae saepe
-        illo omnis est.
+        <span dangerouslySetInnerHTML={{ __html: excerpt }} />
       </Excerpt>
       <Separator />
-      <PostDate>publié le 12 septembre 2020</PostDate>
+      <PostDate>publié le {date}</PostDate>
       <PostTagWrapper>
         <PostTag>Sarah Senee</PostTag>
         <PostTag>photographie</PostTag>
