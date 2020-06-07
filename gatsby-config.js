@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Sous la fibre`,
+    description: `Le podcast qui donne la parole aux arts visuels.`,
+    author: `camille villard | cdltbisou.com`,
+    image:
+      "https://contenu.souslafibre.com/wp-content/uploads/2020/06/logo.png",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

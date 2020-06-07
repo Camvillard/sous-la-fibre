@@ -17,6 +17,7 @@ import { createExcerpt } from "../helpers/podcast.helpers"
 import { themeBreakpoints } from "../theme/theme-variables"
 import { PodcastPageDesktop } from "../components/Podcast/PodcastPageDesktop.component"
 import { PodcastPageMobile } from "../components/Podcast/PodcastPageMobile.component"
+import { convertInRegulatText } from "../helpers/text.helpers"
 
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
@@ -27,7 +28,10 @@ const PodcastPage = (props: IPodcastPageProps) => {
   const { wordpressWpPodcast, site } = data
   const { episode } = pathContext
 
-  const { content, title, tags, acf, featured_media } = wordpressWpPodcast
+  const { content, tags, acf, featured_media } = wordpressWpPodcast
+
+  const title = convertInRegulatText(wordpressWpPodcast.title)
+  console.log("title", title)
 
   const excerpt = createExcerpt(content)
 
