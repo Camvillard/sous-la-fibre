@@ -56,12 +56,8 @@ const PostTag = styled.p`
 type PostCardProps = {
   post: WordpressPost
 }
-export const PostCard = ({ post }: PostCardProps) => {
-  const { title, content, date, featured_media, slug } = post
-
-  if (!post) {
-    return <p>pas de post</p>
-  }
+export const PostCard = (props: PostCardProps) => {
+  const { title, content, date, featured_media, slug } = props.post
 
   const thumbnail = featured_media.source_url
   const excerpt = createExcerpt(content)
