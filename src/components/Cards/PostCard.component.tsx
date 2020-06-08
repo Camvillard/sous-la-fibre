@@ -57,6 +57,8 @@ type PostCardProps = {
   post: WordpressPost
 }
 export const PostCard = (props: PostCardProps) => {
+  console.log("props", props)
+
   const { title, content, date, featured_media, slug } = props.post
 
   const thumbnail = featured_media.source_url
