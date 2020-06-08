@@ -8,10 +8,9 @@ import {
   themeFonts,
   themeBreakpoints,
 } from "../../theme/theme-variables"
-import { WordpressPost } from "../../models/post.model"
 import { createExcerpt } from "../../helpers/podcast.helpers"
 import { SimpleLink } from "../Buttons/Buttons.ui"
-import { GridContainer } from "../Containers/Containers.ui"
+import { WordpressPost } from "../../models/post.model"
 
 const { mediumBlue, darkGray } = themeColors
 const { accentFont } = themeFonts
@@ -59,6 +58,11 @@ type PostCardProps = {
 }
 export const PostCard = ({ post }: PostCardProps) => {
   const { title, content, date, featured_media, slug } = post
+
+  if (!post) {
+    return <p>pas de post</p>
+  }
+
   const thumbnail = featured_media.source_url
   const excerpt = createExcerpt(content)
 
