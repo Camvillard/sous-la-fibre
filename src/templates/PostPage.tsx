@@ -3,6 +3,15 @@ import { graphql } from "gatsby"
 import { PageProps } from "../models/page.model"
 import { GlobalStyle } from "../theme/global-style"
 import SEO from "../components/Seo/Seo.component"
+import {
+  PostPageWrapper,
+  PostPageInnerWrapper,
+  PostTitle,
+  PostContent,
+} from "../components/Post/PostPage.ui"
+import { PodcastPageBack } from "../components/Podcast/PodcastPageBack.component"
+
+import "../scss/single-post.css"
 
 interface PostPageProps extends PageProps {}
 const PostPage = (props: PostPageProps) => {
@@ -14,6 +23,17 @@ const PostPage = (props: PostPageProps) => {
     <>
       <GlobalStyle />
       <SEO title={title} description={excerpt} lang={"fr"} />
+      <PostPageWrapper>
+        <PostPageInnerWrapper>
+          <PodcastPageBack />
+          <PostTitle>
+            <span dangerouslySetInnerHTML={{ __html: title }} />
+          </PostTitle>
+          <PostContent>
+            <span dangerouslySetInnerHTML={{ __html: content }} />
+          </PostContent>
+        </PostPageInnerWrapper>
+      </PostPageWrapper>
     </>
   )
 }
