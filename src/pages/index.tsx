@@ -14,6 +14,8 @@ const IndexPage = ({ data }: PageProps) => {
   const { allWordpressWpPodcast, allWordpressPost } = data
   const { totalCount: podcastCount } = allWordpressWpPodcast
   const { edges: allPosts, totalCount: postsCount } = allWordpressPost
+  console.log("data", data)
+
   let counter = podcastCount + 1
   return (
     <Layout>
@@ -38,11 +40,11 @@ const IndexPage = ({ data }: PageProps) => {
         <HeaderWithCounter count={postsCount}>
           tous les articles
         </HeaderWithCounter>
-        <PostGrid>
+        {/* <PostGrid>
           {allPosts.map(post => {
             return <PostCard key={post.node.id} post={post.node} />
           })}
-        </PostGrid>
+        </PostGrid> */}
       </MainContainer>
     </Layout>
   )
