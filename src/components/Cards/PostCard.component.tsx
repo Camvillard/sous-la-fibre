@@ -56,7 +56,7 @@ const PostTag = styled.p`
 type PostCardProps = {
   post: WordpressPost
 }
-export const PostCard = (props: PostCardProps) => {
+export const PostCard = (props: any) => {
   console.log("props", props)
 
   const { title, content, date, featured_media, slug } = props.post
