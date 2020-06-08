@@ -91,6 +91,10 @@ const LogoImage = styled.img`
   display: block;
   background: ${brighBlue};
 
+  @media (min-width: ${smScreen}) and (orientation: portrait) {
+    width: 80%;
+  }
+
   @media (min-width: ${lgScreen}) and (orientation: landscape) {
     width: auto;
     height: 92vh;

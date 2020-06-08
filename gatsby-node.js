@@ -22,12 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             title
-            content
-            date(formatString: "LL", locale: "fr")
-            featured_media {
-              source_url
-              id
-            }
+            slug
           }
         }
       }

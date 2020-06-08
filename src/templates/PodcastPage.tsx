@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { useMediaQuery } from "react-responsive"
 
 import { PodcastPageHeader } from "../components/Podcast/PodcastPageHeader.component"
-import { IPageProps } from "../models/page.model"
+import { PageProps } from "../models/page.model"
 import { GlobalStyle } from "../theme/global-style"
 import {
   PodcastPageWrapper,
@@ -21,9 +21,9 @@ import { convertInRegulatText } from "../helpers/text.helpers"
 
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
-interface IPodcastPageProps extends IPageProps {}
+interface PodcastPageProps extends PageProps {}
 
-const PodcastPage = (props: IPodcastPageProps) => {
+const PodcastPage = (props: PodcastPageProps) => {
   const { data, pathContext } = props
   const { wordpressWpPodcast, site } = data
   const { episode } = pathContext

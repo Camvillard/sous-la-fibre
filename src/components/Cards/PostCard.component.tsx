@@ -3,12 +3,19 @@ import styled from "styled-components"
 import { Header4 } from "../Headers/Headers.ui"
 import { placeholders } from "../../helpers/placeholders"
 import { Excerpt } from "./Cards.ui"
-import { themeColors, themeFonts } from "../../theme/theme-variables"
+import {
+  themeColors,
+  themeFonts,
+  themeBreakpoints,
+} from "../../theme/theme-variables"
 import { WordpressPost } from "../../models/post.model"
 import { createExcerpt } from "../../helpers/podcast.helpers"
+import { SimpleLink } from "../Buttons/Buttons.ui"
+import { GridContainer } from "../Containers/Containers.ui"
 
-const { mediumBlue } = themeColors
+const { mediumBlue, darkGray } = themeColors
 const { accentFont } = themeFonts
+const { smScreen, lgScreen } = themeBreakpoints
 
 const PostCardWrapper = styled.div`
   margin: 24px auto;
@@ -30,7 +37,7 @@ const Separator = styled.hr`
 `
 
 const PostDate = styled.p`
-  color: ${mediumBlue};
+  color: ${darkGray};
   font-size: 1.21rem;
 `
 
@@ -51,25 +58,25 @@ type PostCardProps = {
   post: WordpressPost
 }
 export const PostCard = ({ post }: PostCardProps) => {
-  const { title, content, date, featured_media } = post
+  const { title, content, date, featured_media, slug } = post
   const thumbnail = featured_media.source_url
   const excerpt = createExcerpt(content)
 
   return (
     <PostCardWrapper>
+      <PostDate>publié le {date}</PostDate>
       <PostThumbnail src={thumbnail} alt={title} />
+      <PostTagWrapper>
+        <PostTag>Sarah Senee</PostTag>
+        <PostTag>photographie</PostTag>
+      </PostTagWrapper>
       <PostTitle>
         <span dangerouslySetInnerHTML={{ __html: title }} />
       </PostTitle>
       <Excerpt>
         <span dangerouslySetInnerHTML={{ __html: excerpt }} />
       </Excerpt>
-      <Separator />
-      <PostDate>publié le {date}</PostDate>
-      <PostTagWrapper>
-        <PostTag>Sarah Senee</PostTag>
-        <PostTag>photographie</PostTag>
-      </PostTagWrapper>
+      <SimpleLink to={`article/${slug}`}>lire la suite</SimpleLink>
     </PostCardWrapper>
   )
 }

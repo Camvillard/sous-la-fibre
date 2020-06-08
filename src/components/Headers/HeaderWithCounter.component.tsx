@@ -16,7 +16,7 @@ const HeaderCounter = styled(Header2)`
   padding-top: 4vh;
   font-size: 3.2rem;
   @media (min-width: ${smScreen}) {
-    padding: 24px;
+    padding-top: 24px;
     font-size: 4rem;
   }
   @media (min-width: ${mdScreen}) {

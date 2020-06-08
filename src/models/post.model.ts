@@ -12,6 +12,8 @@ export type WordpressPost = {
   content: string
   date: string
   featured_media: FeaturedMedia
+  slug?: string
+  excerpt?: string
 }
 
 type FeaturedMedia = {
