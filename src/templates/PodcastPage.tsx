@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { useMediaQuery } from "react-responsive"
 
 import { PodcastPageHeader } from "../components/Podcast/PodcastPageHeader.component"
-import { IPageProps } from "../models/page.model"
+import { PageProps } from "../models/page.model"
 import { GlobalStyle } from "../theme/global-style"
 import {
   PodcastPageWrapper,
@@ -17,17 +17,21 @@ import { createExcerpt } from "../helpers/podcast.helpers"
 import { themeBreakpoints } from "../theme/theme-variables"
 import { PodcastPageDesktop } from "../components/Podcast/PodcastPageDesktop.component"
 import { PodcastPageMobile } from "../components/Podcast/PodcastPageMobile.component"
+import { convertInRegulatText } from "../helpers/text.helpers"
 
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
-interface IPodcastPageProps extends IPageProps {}
+interface PodcastPageProps extends PageProps {}
 
-const PodcastPage = (props: IPodcastPageProps) => {
+const PodcastPage = (props: PodcastPageProps) => {
   const { data, pathContext } = props
   const { wordpressWpPodcast, site } = data
   const { episode } = pathContext
 
-  const { content, title, tags, acf, featured_media } = wordpressWpPodcast
+  const { content, tags, acf, featured_media } = wordpressWpPodcast
+
+  const title = convertInRegulatText(wordpressWpPodcast.title)
+  console.log("title", title)
 
   const excerpt = createExcerpt(content)
 

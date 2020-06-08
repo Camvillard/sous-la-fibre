@@ -10,11 +10,11 @@ import {
 } from "../components/Error/ErrorPage.ui"
 import { GlobalStyle } from "../theme/global-style"
 import { graphql } from "gatsby"
-import { TPageData, IPageProps } from "../models/page.model"
+import { PageData, PageProps } from "../models/page.model"
 import { Logo } from "../components/Logo/Logo.component"
 import { LogoImage } from "../components/Logo/LogoImage.component"
 
-const NotFoundPage = ({ data }: IPageProps) => {
+const NotFoundPage = ({ data }: PageProps) => {
   console.log(data)
 
   const { allWordpressWpPodcast } = data

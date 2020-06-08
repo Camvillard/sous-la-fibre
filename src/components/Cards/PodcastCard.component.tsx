@@ -90,12 +90,12 @@ const PodcastThumbnail = styled.img`
     height: 44%;
   }
 `
-type TPodcastCardProps = {
+type PodcastCardProps = {
   podcast: PodcastData
   key: string
   counter: number
 }
-export const PodcastCard = ({ podcast, counter }: TPodcastCardProps) => {
+export const PodcastCard = ({ podcast, counter }: PodcastCardProps) => {
   const { slug, title, content, featured_media } = podcast
   const { source_url: src, alt_text: alt } = featured_media
 

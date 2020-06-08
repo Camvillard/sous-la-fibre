@@ -1,17 +1,19 @@
 import React from "react"
-import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout/Layout.component"
 import { PodcastCard } from "../components/Cards/PodcastCard.component"
-import { IPageProps } from "../models/page.model"
+import { PageProps } from "../models/page.model"
 import { MainContainer } from "../components/Containers/Containers.ui"
 import { HeaderWithCounter } from "../components/Headers/HeaderWithCounter.component"
 import { HomeBanner } from "../components/HomeBanner/HomeBanner.component"
+import { PostCard } from "../components/Cards/PostCard.component"
+import { PostGrid } from "../components/Post/PostGrid.ui"
 
-const IndexPage = ({ data }: IPageProps) => {
-  const { allWordpressWpPodcast } = data
+const IndexPage = ({ data }: PageProps) => {
+  const { allWordpressWpPodcast, allWordpressPost } = data
   const { totalCount: podcastCount } = allWordpressWpPodcast
+  const { edges: allPosts, totalCount: postsCount } = allWordpressPost
   let counter = podcastCount + 1
   return (
     <Layout>
@@ -32,11 +34,16 @@ const IndexPage = ({ data }: IPageProps) => {
         )
       })}
 
-      {/* <MainContainer id={"tous-les-articles"}>
-        <HeaderWithCounter count={podcastCount}>
+      <MainContainer id={"tous-les-articles"}>
+        <HeaderWithCounter count={postsCount}>
           tous les articles
         </HeaderWithCounter>
-      </MainContainer> */}
+        <PostGrid>
+          {allPosts.map(post => {
+            return <PostCard key={post.node.id} post={post.node} />
+          })}
+        </PostGrid>
+      </MainContainer>
     </Layout>
   )
 }
@@ -56,6 +63,24 @@ export const indexPageQuery = graphql`
             id
             source_url
             alt_text
+          }
+        }
+      }
+    }
+    allWordpressPost(
+      filter: { id: { ne: "22bf5072-5999-51ac-be3f-65df4e78e598" } }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          title
+          content
+          slug
+          date(formatString: "LL", locale: "fr")
+          featured_media {
+            source_url
+            id
           }
         }
       }

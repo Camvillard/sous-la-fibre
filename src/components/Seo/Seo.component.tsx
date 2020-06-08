@@ -7,9 +7,10 @@ type SEOProps = {
   lang?: string
   meta?: any
   title?: string
+  thumbnail?: string
 }
 
-const SEO = ({ description, lang, meta, title }: SEOProps) => {
+const SEO = ({ description, lang, meta, title, thumbnail }: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -45,6 +46,10 @@ const SEO = ({ description, lang, meta, title }: SEOProps) => {
         {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: thumbnail,
         },
         {
           property: `og:type`,

@@ -3,10 +3,19 @@ import styled from "styled-components"
 import { Header4 } from "../Headers/Headers.ui"
 import { placeholders } from "../../helpers/placeholders"
 import { Excerpt } from "./Cards.ui"
-import { themeColors, themeFonts } from "../../theme/theme-variables"
+import {
+  themeColors,
+  themeFonts,
+  themeBreakpoints,
+} from "../../theme/theme-variables"
+import { WordpressPost } from "../../models/post.model"
+import { createExcerpt } from "../../helpers/podcast.helpers"
+import { SimpleLink } from "../Buttons/Buttons.ui"
+import { GridContainer } from "../Containers/Containers.ui"
 
-const { mediumBlue } = themeColors
+const { mediumBlue, darkGray } = themeColors
 const { accentFont } = themeFonts
+const { smScreen, lgScreen } = themeBreakpoints
 
 const PostCardWrapper = styled.div`
   margin: 24px auto;
@@ -28,7 +37,7 @@ const Separator = styled.hr`
 `
 
 const PostDate = styled.p`
-  color: ${mediumBlue};
+  color: ${darkGray};
   font-size: 1.21rem;
 `
 
@@ -45,24 +54,29 @@ const PostTag = styled.p`
   font-family: ${accentFont};
   font-size: 1.2rem;
 `
+type PostCardProps = {
+  post: WordpressPost
+}
+export const PostCard = ({ post }: PostCardProps) => {
+  const { title, content, date, featured_media, slug } = post
+  const thumbnail = featured_media.source_url
+  const excerpt = createExcerpt(content)
 
-export const PostCard = () => {
   return (
     <PostCardWrapper>
-      <PostThumbnail src={placeholders.one} />
-      <PostTitle>titre de l'article</PostTitle>
-      <Excerpt>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque
-        assumenda, voluptatem, fugiat quaerat praesentium minus quo odit eaque
-        laudantium magni reiciendis ullam delectus nostrum deserunt beatae saepe
-        illo omnis est.
-      </Excerpt>
-      <Separator />
-      <PostDate>publié le 12 septembre 2020</PostDate>
+      <PostDate>publié le {date}</PostDate>
+      <PostThumbnail src={thumbnail} alt={title} />
       <PostTagWrapper>
         <PostTag>Sarah Senee</PostTag>
         <PostTag>photographie</PostTag>
       </PostTagWrapper>
+      <PostTitle>
+        <span dangerouslySetInnerHTML={{ __html: title }} />
+      </PostTitle>
+      <Excerpt>
+        <span dangerouslySetInnerHTML={{ __html: excerpt }} />
+      </Excerpt>
+      <SimpleLink to={`article/${slug}`}>lire la suite</SimpleLink>
     </PostCardWrapper>
   )
 }

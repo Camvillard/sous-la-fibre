@@ -1,19 +1,22 @@
 import { PodcastData } from "./podcast.model"
 import { TSiteData } from "./site.model"
+import { WordpressEdges, WordpressPost } from "./post.model"
 
-export type TPageData = {
+export type PageData = {
   allWordpressWpPodcast?: any
+  allWordpressPost?: WordpressEdges
   wordpressWpPodcast?: PodcastData
+  wordpressPost?: WordpressPost
   site: TSiteData
 }
 
-export type TPageContext = {
+export type PageContext = {
   episode: number
   id: string
   slug: string
 }
 
-export interface IPageProps {
-  data: TPageData
-  pathContext: TPageContext
+export interface PageProps {
+  data: PageData
+  pathContext: PageContext
 }

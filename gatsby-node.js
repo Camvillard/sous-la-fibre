@@ -16,6 +16,16 @@ exports.createPages = async ({ graphql, actions }) => {
   // from the fetched data that you can run queries against.
   const result = await graphql(`
     {
+      allWordpressPost {
+        totalCount
+        edges {
+          node {
+            id
+            title
+            slug
+          }
+        }
+      }
       allWordpressWpPodcast(sort: { fields: date, order: DESC }) {
         totalCount
         edges {
@@ -35,9 +45,28 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Access query results via object destructuring
-  const { allWordpressWpPodcast } = result.data
+  const { allWordpressWpPodcast, allWordpressPost } = result.data
 
-  // Create Page pages.
+  const postTemplate = path.resolve(`./src/templates/PostPage.tsx`)
+  allWordpressPost.edges.forEach(edge => {
+    // Gatsby uses Redux to manage its internal state.
+    // Plugins and sites can use functions like "createPage"
+    // to interact with Gatsby.
+    createPage({
+      // Each page is required to have a `path` as well
+      // as a template component. The `context` is
+      // optional but is often necessary so the template
+      // can query data specific to each page.
+      path: `article/${edge.node.slug}`,
+      component: slash(postTemplate),
+      context: {
+        id: edge.node.id,
+        slug: edge.node.slug,
+      },
+    })
+  })
+
+  // Create Podcasts pages.
   const podcastTemplate = path.resolve(`./src/templates/PodcastPage.tsx`)
   // We want to create a detailed page for each page node.
   // The path field contains the relative original WordPress link
@@ -59,7 +88,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: slash(podcastTemplate),
       context: {
         id: edge.node.id,
-        slug: edge.node.id,
+        slug: edge.node.slug,
         episode: counter,
       },
     })
