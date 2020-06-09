@@ -61,7 +61,9 @@ export const PostCard = (props: any) => {
 
   const { title, content, date, featured_media, slug } = props.post
 
-  const thumbnail = featured_media.source_url
+  const thumbnail = featured_media?.source_url || ""
+  console.log("thumbnail", thumbnail)
+
   const excerpt = createExcerpt(content)
 
   return (
