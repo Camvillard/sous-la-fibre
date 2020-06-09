@@ -59,14 +59,14 @@ type PostCardProps = {
 export const PostCard = (props: any) => {
   console.log("props", props)
 
-  // const { title, content, date, featured_media, slug } = props.post
+  const { title, content, date, featured_media, slug } = props.post
 
-  // const thumbnail = featured_media.source_url
-  // const excerpt = createExcerpt(content)
+  const thumbnail = featured_media.source_url
+  const excerpt = createExcerpt(content)
 
   return (
     <PostCardWrapper>
-      {/* <PostDate>publié le {date}</PostDate>
+      <PostDate>publié le {date}</PostDate>
       <PostThumbnail src={thumbnail} alt={title} />
       <PostTagWrapper>
         <PostTag>Sarah Senee</PostTag>
@@ -78,7 +78,7 @@ export const PostCard = (props: any) => {
       <Excerpt>
         <span dangerouslySetInnerHTML={{ __html: excerpt }} />
       </Excerpt>
-      <SimpleLink to={`article/${slug}`}>lire la suite</SimpleLink> */}
+      <SimpleLink to={`article/${slug}`}>lire la suite</SimpleLink>
     </PostCardWrapper>
   )
 }
