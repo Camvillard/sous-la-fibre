@@ -13,7 +13,7 @@ import { PostGrid } from "../components/Post/PostGrid.ui"
 const IndexPage = ({ data }: PageProps) => {
   const { allWordpressWpPodcast, allWordpressPost } = data
   const { totalCount: podcastCount } = allWordpressWpPodcast
-  const { edges: allPosts, totalCount: postsCount } = allWordpressPost
+  const { totalCount: postsCount } = allWordpressPost
   console.log("data", data)
 
   let counter = podcastCount + 1
@@ -40,11 +40,11 @@ const IndexPage = ({ data }: PageProps) => {
         <HeaderWithCounter count={postsCount}>
           tous les articles
         </HeaderWithCounter>
-        {/* <PostGrid>
-          {allPosts.map(post => {
-            return <PostCard key={post.node.id} post={post.node} />
+        <PostGrid>
+          {allWordpressPost.edges.map(post => {
+            return <PostCard key={post.node.id} post={post} />
           })}
-        </PostGrid> */}
+        </PostGrid>
       </MainContainer>
     </Layout>
   )
