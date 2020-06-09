@@ -68,6 +68,8 @@ export const PostCard = ({ post }: any) => {
 
   const { title, content, date, featured_media, slug } = post
 
+  console.log("title", title)
+
   // const thumbnail = featured_media?.source_url || ""
   // console.log("thumbnail", thumbnail)
 
