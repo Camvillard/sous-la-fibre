@@ -59,10 +59,14 @@ type PostCardProps = {
 export const PostCard = ({ post }: any) => {
   console.log("post", post)
 
+  if (!post) {
+    return <></>
+  }
+
   // const { node } = post
   // console.log("node", node)
 
-  // const { title, content, date, featured_media, slug } = props.post.node
+  const { title, content, date, featured_media, slug } = post
 
   // const thumbnail = featured_media?.source_url || ""
   // console.log("thumbnail", thumbnail)
