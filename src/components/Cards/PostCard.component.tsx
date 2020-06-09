@@ -70,14 +70,14 @@ export const PostCard = ({ post }: any) => {
 
   console.log("title", title)
 
-  // const thumbnail = featured_media?.source_url || ""
-  // console.log("thumbnail", thumbnail)
+  const thumbnail = featured_media?.source_url || ""
+  console.log("thumbnail", thumbnail)
 
-  // const excerpt = createExcerpt(content)
+  const excerpt = createExcerpt(content)
 
   return (
     <PostCardWrapper>
-      {/* <PostDate>publié le {date}</PostDate>
+      <PostDate>publié le {date}</PostDate>
       <PostThumbnail src={thumbnail} alt={title} />
       <PostTagWrapper>
         <PostTag>Sarah Senee</PostTag>
@@ -92,7 +92,7 @@ export const PostCard = ({ post }: any) => {
         </Excerpt>
       )}
 
-      <SimpleLink to={`article/${slug}`}>lire la suite</SimpleLink> */}
+      <SimpleLink to={`article/${slug}`}>lire la suite</SimpleLink>
     </PostCardWrapper>
   )
 }
