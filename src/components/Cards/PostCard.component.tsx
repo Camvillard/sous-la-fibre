@@ -56,23 +56,12 @@ const PostTag = styled.p`
 type PostCardProps = {
   post: WordpressPost
 }
-export const PostCard = ({ post }: any) => {
-  console.log("post", post)
-
+export const PostCard = ({ post }: PostCardProps) => {
   if (!post) {
     return <></>
   }
-
-  // const { node } = post
-  // console.log("node", node)
-
   const { title, content, date, featured_media, slug } = post
-
-  console.log("title", title)
-
   const thumbnail = featured_media?.source_url || ""
-  console.log("thumbnail", thumbnail)
-
   const excerpt = createExcerpt(content)
 
   return (
