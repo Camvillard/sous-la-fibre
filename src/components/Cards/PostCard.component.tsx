@@ -59,7 +59,7 @@ type PostCardProps = {
 export const PostCard = (props: any) => {
   console.log("props", props)
 
-  const { title, content, date, featured_media, slug } = props.post
+  const { title, content, date, featured_media, slug } = props.post.node
 
   const thumbnail = featured_media?.source_url || ""
   console.log("thumbnail", thumbnail)
@@ -69,7 +69,7 @@ export const PostCard = (props: any) => {
   return (
     <PostCardWrapper>
       <PostDate>publié le {date}</PostDate>
-      {/* <PostThumbnail src={thumbnail} alt={title} /> */}
+      <PostThumbnail src={thumbnail} alt={title} />
       <PostTagWrapper>
         <PostTag>Sarah Senee</PostTag>
         <PostTag>photographie</PostTag>
