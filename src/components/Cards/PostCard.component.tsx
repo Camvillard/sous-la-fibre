@@ -56,13 +56,11 @@ const PostTag = styled.p`
 type PostCardProps = {
   post: WordpressPost
 }
-export const PostCard = (props: any) => {
-  console.log("props", props)
-  const { post } = props
+export const PostCard = ({ post }: any) => {
   console.log("post", post)
 
-  const { node } = post
-  console.log("node", node)
+  // const { node } = post
+  // console.log("node", node)
 
   // const { title, content, date, featured_media, slug } = props.post.node
 

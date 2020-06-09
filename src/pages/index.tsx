@@ -41,8 +41,8 @@ const IndexPage = ({ data }: PageProps) => {
           tous les articles
         </HeaderWithCounter>
         <PostGrid>
-          {allWordpressPost.edges.map(post => {
-            return <PostCard key={post.node.id} post={post} />
+          {allWordpressPost.edges.map(edge => {
+            return <PostCard key={edge.node.id} post={edge.node} />
           })}
         </PostGrid>
       </MainContainer>
