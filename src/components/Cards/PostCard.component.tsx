@@ -69,7 +69,7 @@ export const PostCard = (props: any) => {
   return (
     <PostCardWrapper>
       <PostDate>publié le {date}</PostDate>
-      <PostThumbnail src={thumbnail} alt={title} />
+      {/* <PostThumbnail src={thumbnail} alt={title} /> */}
       <PostTagWrapper>
         <PostTag>Sarah Senee</PostTag>
         <PostTag>photographie</PostTag>
@@ -77,9 +77,12 @@ export const PostCard = (props: any) => {
       <PostTitle>
         <span dangerouslySetInnerHTML={{ __html: title }} />
       </PostTitle>
-      <Excerpt>
-        <span dangerouslySetInnerHTML={{ __html: excerpt }} />
-      </Excerpt>
+      {excerpt && (
+        <Excerpt>
+          <span dangerouslySetInnerHTML={{ __html: excerpt }} />
+        </Excerpt>
+      )}
+
       <SimpleLink to={`article/${slug}`}>lire la suite</SimpleLink>
     </PostCardWrapper>
   )
