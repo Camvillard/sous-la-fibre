@@ -1,10 +1,16 @@
 import React from "react"
 import styled from "styled-components"
+import { AcfData } from "../../models/podcast.model"
+import { themeBreakpoints } from "../../theme/theme-variables"
 
-import { TAcfData } from "../../models/podcast.model"
+const { smScreen, mdScreen } = themeBreakpoints
+
+// import { AcfData } from "../../models/podcast.model"
 
 const PodcastFooterWrapper = styled.div`
-  margin: 24px 0;
+  @media (min-width: ${smScreen}) {
+    grid-column: 1 / span 1;
+  }
 `
 const PodcastFooterInfoWrapper = styled.div`
   margin: 8px 0;
@@ -21,7 +27,7 @@ const PodcastFooterInfoContent = styled.p`
 `
 
 type TPodcastPageFooter = {
-  acf: TAcfData
+  acf: AcfData
 }
 
 export const PodcastPageFooter = ({ acf }: TPodcastPageFooter) => {

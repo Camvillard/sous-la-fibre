@@ -90,4 +90,7 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 1.6rem;
     }
   }
+  .css-1ufwyvl {
+    margin: 0 !important;
+  }
 `

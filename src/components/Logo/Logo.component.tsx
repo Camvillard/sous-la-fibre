@@ -6,7 +6,6 @@ import {
   themeBreakpoints,
   themeFonts,
 } from "../../theme/theme-variables"
-import { MainContainer } from "../Containers/Containers.ui"
 
 const { darkGray, brighBlue } = themeColors
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints

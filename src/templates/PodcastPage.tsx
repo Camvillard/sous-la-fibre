@@ -8,6 +8,7 @@ import { GlobalStyle } from "../theme/global-style"
 import {
   PodcastPageWrapper,
   PodcastInnerWrapper,
+  PodcastGridContent,
 } from "../components/Podcast/PodcastPage.ui"
 import { PodcastPageDescription } from "../components/Podcast/PodcastPageDescription.component"
 import { PodcastPageFooter } from "../components/Podcast/PodcastPageFooter.component"
@@ -18,6 +19,9 @@ import { themeBreakpoints } from "../theme/theme-variables"
 import { PodcastPageDesktop } from "../components/Podcast/PodcastPageDesktop.component"
 import { PodcastPageMobile } from "../components/Podcast/PodcastPageMobile.component"
 import { convertInRegulatText } from "../helpers/text.helpers"
+import { PodcastWidget } from "../components/Podcast/PodcastWidget.component"
+import { PodcastThumbnail } from "../components/Podcast/PodcastpageThumbnail.ui"
+import { PodcastPageLinks } from "../components/Podcast/PodcastPageLinks.component"
 
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
@@ -29,24 +33,29 @@ const PodcastPage = (props: PodcastPageProps) => {
   const { episode } = pathContext
 
   const { content, tags, acf, featured_media } = wordpressWpPodcast
+  const { idAusha } = acf
+  const { source_url: src, alt_text: alt } = featured_media
 
   const title = convertInRegulatText(wordpressWpPodcast.title)
-  console.log("title", title)
 
   const excerpt = createExcerpt(content)
 
-  const isDesktop = useMediaQuery({
-    query: `(min-device-width: ${mdScreen})`,
-  })
   return (
     <>
       <GlobalStyle />
       <SEO title={title} description={excerpt} lang={"fr"} />
-      {isDesktop ? (
-        <PodcastPageDesktop podcast={wordpressWpPodcast} episode={episode} />
-      ) : (
-        <PodcastPageMobile podcast={wordpressWpPodcast} episode={episode} />
-      )}
+      <PodcastPageWrapper>
+        <PodcastInnerWrapper>
+          <PodcastPageBack />
+          <PodcastGridContent>
+            <PodcastThumbnail src={src} alt={alt} />
+            <PodcastPageHeader title={title} episode={episode} />
+            <PodcastPageDescription content={content} acf={acf} />
+            <PodcastWidget podcastId={idAusha} />
+            <PodcastPageLinks links={acf} />
+          </PodcastGridContent>
+        </PodcastInnerWrapper>
+      </PodcastPageWrapper>
     </>
   )
 }

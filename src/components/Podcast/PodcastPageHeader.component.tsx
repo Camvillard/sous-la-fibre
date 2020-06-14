@@ -4,12 +4,11 @@ import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
 import { FeaturedMedia } from "../../models/podcast.model"
 
 const { mediumGray, lightGray, gray } = themeColors
-const { mdScreen } = themeBreakpoints
+const { smScreen, mdScreen } = themeBreakpoints
 
 type TPodcastPageHeader = {
   title: string
   episode: number
-  thumbnail: FeaturedMedia
 }
 
 const PodcastEpisode = styled.p`
@@ -22,24 +21,20 @@ const PodcastTitle = styled.h1`
   font-size: 2.2rem;
   margin: 0;
 `
-const PodcastThumbnail = styled.img`
-  width: 100%;
-  margin: 16px auto 8px;
-  @media (min-width: ${mdScreen}) {
-    width: 80%;
+
+const PageHeaderWrapper = styled.div`
+  @media (min-width: ${smScreen}) {
+    grid-column: 1 / span 2;
   }
 `
-export const PodcastPageHeader = ({
-  title,
-  episode,
-  thumbnail,
-}: TPodcastPageHeader) => {
+
+export const PodcastPageHeader = ({ title, episode }: TPodcastPageHeader) => {
   return (
-    <>
+    <PageHeaderWrapper>
       <PodcastEpisode>épisode {episode}</PodcastEpisode>
       <PodcastTitle>
         <span dangerouslySetInnerHTML={{ __html: title }} />
       </PodcastTitle>
-    </>
+    </PageHeaderWrapper>
   )
 }
