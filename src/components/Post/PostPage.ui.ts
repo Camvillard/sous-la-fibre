@@ -3,7 +3,7 @@ import { FullScreenContainer } from "../Containers/Containers.ui"
 import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
 
 const { mediumBlue } = themeColors
-const { mdScreen } = themeBreakpoints
+const { mdScreen, lgScreen } = themeBreakpoints
 
 export const PostPageWrapper = styled(FullScreenContainer)`
   background: ${mediumBlue};
@@ -22,9 +22,33 @@ export const PostPageInnerWrapper = styled.div`
     max-height: 90vh;
     height: 90vh;
   }
+  @media (min-width: ${lgScreen}) {
+    width: 82vw;
+    height: 92vh;
+    max-height: 92vh;
+  }
 `
 
 export const PostTitle = styled.h1`
+  padding: 0 8px;
   font-size: 2.4rem;
+  margin-bottom: 12px;
+  @media (min-width: ${mdScreen}) {
+    padding: 0 24px;
+  }
+  @media (min-width: ${lgScreen}) {
+    padding: 0 40px;
+  }
 `
-export const PostContent = styled.div``
+export const PostContent = styled.div`
+  padding: 0 8px;
+  @media (min-width: ${mdScreen}) {
+    padding: 0 24px;
+  }
+  @media (min-width: ${lgScreen}) {
+    padding: 0 40px;
+  }
+  p {
+    max-width: 532px;
+  }
+`

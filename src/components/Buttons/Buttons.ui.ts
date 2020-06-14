@@ -5,8 +5,11 @@ import { themeFonts, themeColors } from "../../theme/theme-variables"
 const { accentFont } = themeFonts
 const { darkGray } = themeColors
 
-export const SimpleLink = styled(Link)`
+type SimpleLinksProps = {
+  color?: string
+}
+export const SimpleLink = styled(Link)<SimpleLinksProps>`
   text-transform: uppercase;
   font-weight: 600;
-  color: ${darkGray};
+  color: ${props => props.color || darkGray};
 `

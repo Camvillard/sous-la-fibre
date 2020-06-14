@@ -14,9 +14,16 @@ export type WordpressPost = {
   featured_media: FeaturedMedia
   slug?: string
   excerpt?: string
+  tags?: Tag[]
 }
 
 type FeaturedMedia = {
   id: string
   source_url: string
+}
+
+type Tag = {
+  id: string
+  name: string
+  slug: string
 }

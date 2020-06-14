@@ -2,6 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { DiamondIcon } from "../Icons/Diamond.component"
+import { themeBreakpoints } from "../../theme/theme-variables"
+
+const { mdScreen, lgScreen } = themeBreakpoints
 
 const BackButton = styled(Link)`
   display: flex;
@@ -11,10 +14,12 @@ const BackButton = styled(Link)`
   text-transform: uppercase;
   font-size: 1.2rem;
   margin: 0 0 16px;
+  position: sticky;
+  top: 0;
   span {
     margin-right: -16px;
     position: relative;
-    z-indx: 100;
+    z-index: 100;
   }
 `
 

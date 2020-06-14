@@ -37,7 +37,8 @@ const Separator = styled.hr`
 
 const PostDate = styled.p`
   color: ${darkGray};
-  font-size: 1.21rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 `
 
 const PostTagWrapper = styled.div`
@@ -60,7 +61,7 @@ export const PostCard = ({ post }: PostCardProps) => {
   if (!post) {
     return <></>
   }
-  const { title, content, date, featured_media, slug } = post
+  const { title, content, date, featured_media, slug, tags } = post
   const thumbnail = featured_media?.source_url || ""
   const excerpt = createExcerpt(content)
 
@@ -68,10 +69,13 @@ export const PostCard = ({ post }: PostCardProps) => {
     <PostCardWrapper>
       <PostDate>publié le {date}</PostDate>
       <PostThumbnail src={thumbnail} alt={title} />
-      <PostTagWrapper>
-        <PostTag>Sarah Senee</PostTag>
-        <PostTag>photographie</PostTag>
-      </PostTagWrapper>
+      {tags && (
+        <PostTagWrapper>
+          {tags.map(tag => (
+            <PostTag key={tag.id}>{tag.name}</PostTag>
+          ))}
+        </PostTagWrapper>
+      )}
       <PostTitle>
         <span dangerouslySetInnerHTML={{ __html: title }} />
       </PostTitle>
@@ -81,7 +85,9 @@ export const PostCard = ({ post }: PostCardProps) => {
         </Excerpt>
       )}
 
-      <SimpleLink to={`article/${slug}`}>lire la suite</SimpleLink>
+      <SimpleLink to={`article/${slug}`} color={mediumBlue}>
+        lire la suite
+      </SimpleLink>
     </PostCardWrapper>
   )
 }

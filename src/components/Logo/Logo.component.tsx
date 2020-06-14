@@ -1,26 +1,37 @@
 import React from "react"
 import styled from "styled-components"
-import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
-import { MainContainer } from "../Containers/Containers.ui"
 import { Link } from "gatsby"
+import {
+  themeColors,
+  themeBreakpoints,
+  themeFonts,
+} from "../../theme/theme-variables"
+import { MainContainer } from "../Containers/Containers.ui"
 
 const { darkGray, brighBlue } = themeColors
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
+const { accentFont } = themeFonts
 
 const LogoWrapper = styled.div``
 
 const Baseline = styled.p`
   color: ${darkGray};
-  font-size: 1.6rem;
-  max-width: 270px;
+  text-align: center;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin: 20px auto 0;
+  max-width: 340px;
 
   @media (min-width: ${smScreen}) {
-    font-size: 2.2rem;
-    max-width: 100%;
+    font-size: 2.4rem;
+    max-width: 450px;
   }
 
   @media (min-width: ${lgScreen}) {
-    font-size: 2rem;
+    font-size: 2.6rem;
+    text-align: left;
+    max-width: 480px;
+    margin-left 0;
   }
 `
 

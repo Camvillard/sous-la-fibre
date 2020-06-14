@@ -13,11 +13,11 @@ const FullScreenGrid = styled.div`
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: auto auto auto;
   background: ${coral};
   justify-items: center;
   @media (min-width: ${mdScreen}) and (orientation: landscape) {
-    grid-template-columns: 4fr 2fr;
+    grid-template-columns: 5fr 3fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
       "image logo"
@@ -27,8 +27,9 @@ const FullScreenGrid = styled.div`
 
 const GridLogoWrapper = styled.div`
   width: 92%;
-  align-self: center;
+  align-self: end;
   margin: 0 auto;
+  padding: 12px 0;
   @media (min-width: ${smScreen}) {
     width: 88vw;
   }
@@ -42,14 +43,14 @@ const GridLogoWrapper = styled.div`
     z-index: 2;
   }
   @media (min-width: ${lgScreen}) and (orientation: landscape) {
-    left: -124px;
-    width: calc(100% + 124px);
+    left: -112px;
+    width: calc(100% + 112px);
     padding-right: 24px;
   }
 `
 
 const GridImageWrapper = styled.div`
-  yarnwidth: 92%;
+  width: 98%;
   align-self: center;
   margin: 0 auto;
   @media (min-width: ${mdScreen}) and (orientation: landscape) {
@@ -80,8 +81,9 @@ const GridNavWrapper = styled.div`
     z-index: 2;
   }
   @media (min-width: ${lgScreen}) and (orientation: landscape) {
-    left: -124px;
-    width: calc(100% + 124px);
+    left: 0;
+    width: 100%;
+    bottom: 4vh;
   }
 `
 
@@ -102,7 +104,7 @@ const LogoImage = styled.img`
 `
 
 const HomeLink = styled(Link)`
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   color: ${darkGray};
   display: block;
@@ -115,17 +117,17 @@ const HomeLink = styled(Link)`
     font-size: 3.4rem;
   }
   @media (min-width: ${mdScreen}) and (orientation: portrait) {
-    font-size: 4.4rem;
+    font-size: 4rem;
   }
   @media (min-width: ${lgScreen}) {
-    font-size: 4.8rem;
+    font-size: 4.2rem;
     text-align: left;
   }
 `
 
 const HomeNav = styled.p`
   margin: 0;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   color: ${darkGray};
   text-align: center;
@@ -140,10 +142,10 @@ const HomeNav = styled.p`
     font-size: 3.4rem;
   }
   @media (min-width: ${mdScreen}) and (orientation: portrait) {
-    font-size: 4.4rem;
+    font-size: 4rem;
   }
   @media (min-width: ${lgScreen}) {
-    font-size: 4.8rem;
+    font-size: 4.2rem;
     text-align: left;
   }
 `
@@ -157,21 +159,19 @@ export const HomeBanner = () => {
   const toggleAbout = () => {
     setShowAbout(!showAbout)
   }
+  const imageSrc =
+    "https://contenu.souslafibre.com/wp-content/uploads/2020/06/sous-la-fibre_logo.jpg"
   return (
     <FullScreenGrid>
       <GridLogoWrapper>
         <Logo />
       </GridLogoWrapper>
       <GridImageWrapper>
-        <LogoImage
-          src={
-            "https://contenu.souslafibre.com/wp-content/uploads/2020/04/sous-la-fibre_sans-texte.jpg"
-          }
-        />
+        <LogoImage src={imageSrc} />
       </GridImageWrapper>
       <GridNavWrapper>
         <HomeLink to={"#tous-les-episodes"}>parcourir les épisodes</HomeLink>
-        {/* <HomeLink to={"#"}>lire les articles</HomeLink> */}
+        <HomeLink to={"#tous-les-articles"}>lire les articles</HomeLink>
         {/* <HomeLink to={"#"}>à propos</HomeLink> */}
         <HomeNav onClick={toggleAbout}>
           {showAbout ? "prochainement !" : "à propos"}

@@ -14,7 +14,6 @@ const IndexPage = ({ data }: PageProps) => {
   const { allWordpressWpPodcast, allWordpressPost } = data
   const { totalCount: podcastCount } = allWordpressWpPodcast
   const { totalCount: postsCount } = allWordpressPost
-  console.log("data", data)
 
   let counter = podcastCount + 1
   return (
@@ -69,9 +68,7 @@ export const indexPageQuery = graphql`
         }
       }
     }
-    allWordpressPost(
-      filter: { id: { ne: "22bf5072-5999-51ac-be3f-65df4e78e598" } }
-    ) {
+    allWordpressPost(sort: { fields: date, order: DESC }) {
       totalCount
       edges {
         node {
@@ -83,6 +80,11 @@ export const indexPageQuery = graphql`
           featured_media {
             source_url
             id
+          }
+          tags {
+            id
+            name
+            slug
           }
         }
       }
