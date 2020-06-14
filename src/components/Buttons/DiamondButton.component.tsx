@@ -18,16 +18,15 @@ const DiamondButtonWrapper = styled.div`
 
   svg {
     position: absolute;
-    top: 0;
     left: calc(50% - 41px);
     z-index: -1;
   }
 
-  @media (min-width: ${mdScreen}) {
+  @media (min-width: ${smScreen}) {
     align-items: flex-start;
     margin-bottom: -26px;
     svg {
-      left: -48px;
+      left: -12px;
     }
   }
 `
@@ -37,7 +36,7 @@ const BlueLink = styled(Link)`
   text-transform: uppercase;
   font-weight: 600;
   margin: 8px auto;
-  @media (min-width: ${mdScreen}) {
+  @media (min-width: ${smScreen}) {
     font-size: 1.2em;
     margin: 8px 0;
   }
@@ -50,8 +49,7 @@ export const DiamondButton = ({ podcastLink }: TDiamondButtonProps) => {
   return (
     <DiamondButtonWrapper>
       <BlueLink to={`/episode/${podcastLink}`}>écouter l'épisode</BlueLink>
-      {/* <BlueLink to={"#"}>lire les articles associés</BlueLink> */}
-      <DiamondIcon ratio={1} />
+      <DiamondIcon ratio={0.6} />
     </DiamondButtonWrapper>
   )
 }
