@@ -1,20 +1,25 @@
 import React from "react"
 import styled from "styled-components"
+import { PodcastPlayer } from "./PodcastPage.ui"
 
-const PodcastPlayer = styled.iframe`
-  align-self: center;
-`
+export type Orientation = "vertical" | "horizontal"
 
 type PodcatsWidgetProps = {
   podcastId: string
+  widgetOrientation?: Orientation
 }
-export const PodcastWidget = ({ podcastId }: PodcatsWidgetProps) => {
+export const PodcastWidget = ({
+  podcastId,
+  widgetOrientation,
+}: PodcatsWidgetProps) => {
+  const height = widgetOrientation === "vertical" ? 470 : 180
+  const width = widgetOrientation === "vertical" ? 295 : 510
   return (
     <PodcastPlayer
       frameBorder="0"
-      height="470px"
-      width="295px"
-      src={`https://widget.ausha.co/index.html?chanId=bYd7gtvKvZMr&showId=b35E8fD5jV4P&color=%2372238e&display=vertical&v=2&height=470px&podcastId=${podcastId}`}
+      height={`${height}px`}
+      width={`${width}px`}
+      src={`https://widget.ausha.co/index.html?chanId=bYd7gtvKvZMr&showId=b35E8fD5jV4P&color=%2372238e&display=${widgetOrientation}&v=2&height=${height}px&podcastId=${podcastId}`}
     ></PodcastPlayer>
   )
 }

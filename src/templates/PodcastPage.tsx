@@ -1,6 +1,5 @@
-import React, { Fragment } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
-import { useMediaQuery } from "react-responsive"
 
 import { PodcastPageHeader } from "../components/Podcast/PodcastPageHeader.component"
 import { PageProps } from "../models/page.model"
@@ -9,19 +8,19 @@ import {
   PodcastPageWrapper,
   PodcastInnerWrapper,
   PodcastGridContent,
+  Back,
 } from "../components/Podcast/PodcastPage.ui"
 import { PodcastPageDescription } from "../components/Podcast/PodcastPageDescription.component"
-import { PodcastPageFooter } from "../components/Podcast/PodcastPageFooter.component"
-import { PodcastPageBack } from "../components/Podcast/PodcastPageBack.component"
 import SEO from "../components/Seo/Seo.component"
 import { createExcerpt } from "../helpers/podcast.helpers"
 import { themeBreakpoints } from "../theme/theme-variables"
-import { PodcastPageDesktop } from "../components/Podcast/PodcastPageDesktop.component"
-import { PodcastPageMobile } from "../components/Podcast/PodcastPageMobile.component"
 import { convertInRegulatText } from "../helpers/text.helpers"
-import { PodcastWidget } from "../components/Podcast/PodcastWidget.component"
-import { PodcastThumbnail } from "../components/Podcast/PodcastpageThumbnail.ui"
+import {
+  PodcastWidget,
+  Orientation,
+} from "../components/Podcast/PodcastWidget.component"
 import { PodcastPageLinks } from "../components/Podcast/PodcastPageLinks.component"
+import { useMediaQuery } from "react-responsive"
 
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
@@ -29,29 +28,41 @@ interface PodcastPageProps extends PageProps {}
 
 const PodcastPage = (props: PodcastPageProps) => {
   const { data, pathContext } = props
-  const { wordpressWpPodcast, site } = data
+  const { wordpressWpPodcast } = data
   const { episode } = pathContext
-
-  const { content, tags, acf, featured_media } = wordpressWpPodcast
+  const { content, acf, featured_media } = wordpressWpPodcast
   const { idAusha } = acf
-  const { source_url: src, alt_text: alt } = featured_media
 
   const title = convertInRegulatText(wordpressWpPodcast.title)
-
   const excerpt = createExcerpt(content)
+
+  const [widgetOrientation, setWidgetOrientation] = useState<Orientation>(
+    "horizontal"
+  )
+  const isTablet = useMediaQuery({
+    query: `(min-device-width: ${smScreen})`,
+  })
+
+  useEffect(() => {
+    isTablet
+      ? setWidgetOrientation("horizontal")
+      : setWidgetOrientation("vertical")
+  }, [isTablet])
 
   return (
     <>
       <GlobalStyle />
       <SEO title={title} description={excerpt} lang={"fr"} />
       <PodcastPageWrapper>
+        <Back to={"/"}>retour</Back>
         <PodcastInnerWrapper>
-          <PodcastPageBack />
           <PodcastGridContent>
-            <PodcastThumbnail src={src} alt={alt} />
             <PodcastPageHeader title={title} episode={episode} />
+            <PodcastWidget
+              podcastId={idAusha}
+              widgetOrientation={widgetOrientation}
+            />
             <PodcastPageDescription content={content} acf={acf} />
-            <PodcastWidget podcastId={idAusha} />
             <PodcastPageLinks links={acf} />
           </PodcastGridContent>
         </PodcastInnerWrapper>

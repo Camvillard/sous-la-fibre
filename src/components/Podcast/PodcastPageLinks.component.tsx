@@ -1,45 +1,7 @@
 import React, { useState } from "react"
-import styled from "styled-components"
-import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
 import { AcfData } from "../../models/podcast.model"
 import { useMediaQuery } from "react-responsive"
-
-const { mediumBlue, darkGray, brighBlue, coral } = themeColors
-const { smScreen, mdScreen } = themeBreakpoints
-
-const ListenWrapper = styled.div`
-  padding: 8px;
-  @media (min-width: ${smScreen}) {
-    grid-column: 1 / span 2;
-  }
-  @media (min-width: ${mdScreen}) {
-    background: none;
-    margin-top: 16px;
-    border: none;
-  }
-`
-
-const ToggleListen = styled.h4`
-  margin: 0;
-  text-align: left;
-  padding: 8px 0;
-  color: ${darkGray};
-`
-
-const PodcastList = styled.ul`
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  li {
-    text-transform: uppercase;
-    text-align: center;
-    display: inline;
-    margin-right: 16px;
-  }
-  a {
-    color: ${darkGray};
-  }
-`
+import { PodcastList, ListenWrapper, ToggleListen } from "./PodcastPage.ui"
 
 type TPodcastPageLinksProps = {
   links: AcfData
@@ -137,10 +99,10 @@ const PodcastListLinks = ({ links }: TPodcastPageLinksProps) => {
 }
 
 export const PodcastPageLinks = ({ links }: TPodcastPageLinksProps) => {
-  const [isOpen, setOpen] = useState(false)
-  const toggle = () => {
-    setOpen(!isOpen)
-  }
+  // const [isOpen, setOpen] = useState(false)
+  // const toggle = () => {
+  //   setOpen(!isOpen)
+  // }
 
   return (
     <ListenWrapper>
