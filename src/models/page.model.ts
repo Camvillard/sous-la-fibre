@@ -1,13 +1,14 @@
 import { PodcastData } from "./podcast.model"
-import { TSiteData } from "./site.model"
+import { SiteData } from "./site.model"
 import { WordpressEdges, WordpressPost } from "./post.model"
+import { FeaturedMedia } from "./media.model"
 
 export type PageData = {
   allWordpressWpPodcast?: any
   allWordpressPost?: WordpressEdges
   wordpressWpPodcast?: PodcastData
   wordpressPost?: WordpressPost
-  site: TSiteData
+  site: SiteData
 }
 
 export type PageContext = {
@@ -19,4 +20,11 @@ export type PageContext = {
 export interface PageProps {
   data: PageData
   pathContext: PageContext
+}
+
+export type WordpressPage = {
+  content: string
+  id: string
+  title: string
+  featured_media: FeaturedMedia
 }

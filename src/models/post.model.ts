@@ -1,3 +1,5 @@
+import { FeaturedMedia } from "./media.model"
+
 export type WordpressEdges = {
   edges: WordpressPostNode[]
   totalCount: number
@@ -15,14 +17,16 @@ export type WordpressPost = {
   slug?: string
   excerpt?: string
   tags?: Tag[]
-}
-
-type FeaturedMedia = {
-  id: string
-  source_url: string
+  categories?: Categorie[]
 }
 
 type Tag = {
+  id: string
+  name: string
+  slug: string
+}
+
+type Categorie = {
   id: string
   name: string
   slug: string

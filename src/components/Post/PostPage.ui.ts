@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import { FullScreenContainer } from "../Containers/Containers.ui"
 import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
+import { MainTitle } from "../Headers/Headers.ui"
 
 const { mediumBlue } = themeColors
-const { mdScreen, lgScreen } = themeBreakpoints
+const { smScreen, mdScreen, lgScreen } = themeBreakpoints
 
 export const PostPageWrapper = styled(FullScreenContainer)`
   background: ${mediumBlue};
@@ -29,16 +30,8 @@ export const PostPageInnerWrapper = styled.div`
   }
 `
 
-export const PostTitle = styled.h1`
+export const PostTitle = styled(MainTitle)`
   padding: 0 8px;
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-  @media (min-width: ${mdScreen}) {
-    padding: 0 24px;
-  }
-  @media (min-width: ${lgScreen}) {
-    padding: 0 40px;
-  }
 `
 export const PostContent = styled.div`
   padding: 0 8px;

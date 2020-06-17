@@ -1,3 +1,5 @@
+import { FeaturedMedia } from "./media.model"
+
 export type AcfData = {
   lienAusha: string
   idAusha: string
@@ -10,12 +12,6 @@ export type Tag = {
   name: string
   slug: string
   count?: number
-}
-
-export type FeaturedMedia = {
-  id?: string
-  source_url: string
-  alt_text: string
 }
 
 export type PodcastData = {

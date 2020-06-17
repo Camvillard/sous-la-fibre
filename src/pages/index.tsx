@@ -86,6 +86,11 @@ export const indexPageQuery = graphql`
             name
             slug
           }
+          categories {
+            id
+            name
+            slug
+          }
         }
       }
     }

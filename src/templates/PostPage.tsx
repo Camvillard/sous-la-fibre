@@ -12,6 +12,7 @@ import {
 import { PodcastPageBack } from "../components/Podcast/PodcastPageBack.component"
 
 import "../scss/single-post.css"
+import { Footer } from "../components/Footer/Footer.component"
 
 interface PostPageProps extends PageProps {}
 const PostPage = (props: PostPageProps) => {
@@ -34,6 +35,7 @@ const PostPage = (props: PostPageProps) => {
           </PostContent>
         </PostPageInnerWrapper>
       </PostPageWrapper>
+      <Footer />
     </>
   )
 }

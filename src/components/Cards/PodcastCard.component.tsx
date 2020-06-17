@@ -54,10 +54,15 @@ const Episode = styled.span`
 `
 
 const PodcastName = styled(Header3)`
-  font-size: 2rem;
+  font-size: 2.4rem;
   max-width: 520px;
   color: ${darkGray};
   margin: 12px 0;
+  @media (min-width: ${smScreen}) {
+    font-size: 2.6rem;
+  }
+  @media (min-width: ${mdScreen}) {
+  }
 `
 
 const PodcastInfoSection = styled(MainContainer)`

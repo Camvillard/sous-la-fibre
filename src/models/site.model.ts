@@ -2,7 +2,7 @@ export type TSiteMetadataData = {
   title: string
   description: string
 }
-export type TSiteData = {
+export type SiteData = {
   id: string
   siteMetadata: TSiteMetadataData
 }

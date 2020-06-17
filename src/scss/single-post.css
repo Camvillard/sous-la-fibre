@@ -1,3 +1,8 @@
 figure.wp-block-image {
   margin: 16px 0;
 }
+
+hr.wp-block-separator {
+  border-width: 0;
+  margin: 16px;
+}

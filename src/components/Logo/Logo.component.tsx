@@ -47,7 +47,9 @@ export const Logo = () => {
         src="https://contenu.souslafibre.com/wp-content/uploads/2020/05/logo_blanc.png"
         alt="logo sous la fibre"
       />
-      <Baseline>le podcast qui donne la parole aux artistes visuels</Baseline>
+      <Baseline>
+        le podcast qui donne la parole aux artistes visuel.les
+      </Baseline>
     </LogoWrapper>
   )
 }

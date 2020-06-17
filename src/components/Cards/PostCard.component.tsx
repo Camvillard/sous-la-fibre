@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Header4 } from "../Headers/Headers.ui"
+import { Header3 } from "../Headers/Headers.ui"
 import { placeholders } from "../../helpers/placeholders"
 import { Excerpt } from "./Cards.ui"
 import {
@@ -20,12 +20,13 @@ const PostCardWrapper = styled.div`
   margin: 24px auto;
 `
 
-const PostTitle = styled(Header4)`
-  font-size: 2rem;
+const PostTitle = styled(Header3)`
+  font-size: 2.4rem;
 `
 
 const PostThumbnail = styled.img`
   margin: 0;
+  height: 320px;
 `
 
 const Separator = styled.hr`
@@ -61,7 +62,10 @@ export const PostCard = ({ post }: PostCardProps) => {
   if (!post) {
     return <></>
   }
-  const { title, content, date, featured_media, slug, tags } = post
+  const { title, content, date, featured_media, slug, tags, categories } = post
+  const etiquettes = tags.concat(categories)
+  console.log("eti", etiquettes)
+
   const thumbnail = featured_media?.source_url || ""
   const excerpt = createExcerpt(content)
 
@@ -69,10 +73,10 @@ export const PostCard = ({ post }: PostCardProps) => {
     <PostCardWrapper>
       <PostDate>publié le {date}</PostDate>
       <PostThumbnail src={thumbnail} alt={title} />
-      {tags && (
+      {etiquettes && (
         <PostTagWrapper>
-          {tags.map(tag => (
-            <PostTag key={tag.id}>{tag.name}</PostTag>
+          {etiquettes.map(etiquette => (
+            <PostTag key={etiquette.id}>{etiquette.name}</PostTag>
           ))}
         </PostTagWrapper>
       )}

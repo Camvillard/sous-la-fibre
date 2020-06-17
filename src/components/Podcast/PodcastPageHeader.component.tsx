@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
-import { FeaturedMedia } from "../../models/podcast.model"
+import { MainTitle } from "../Headers/Headers.ui"
 
 const { mediumGray, lightGray, gray } = themeColors
-const { smScreen, mdScreen } = themeBreakpoints
+const { smScreen, mdScreen, lgScreen } = themeBreakpoints
 
 type TPodcastPageHeader = {
   title: string
@@ -17,9 +17,8 @@ const PodcastEpisode = styled.p`
   color: ${gray};
   margin: 0 0 8px;
 `
-const PodcastTitle = styled.h1`
-  font-size: 2.2rem;
-  margin: 0;
+const PodcastTitle = styled(MainTitle)`
+  padding: 0 8px;
 `
 
 const PageHeaderWrapper = styled.div`
