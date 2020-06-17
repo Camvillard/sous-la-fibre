@@ -3,7 +3,7 @@ import { FullScreenContainer, MainContainer } from "../Containers/Containers.ui"
 import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
 import { Link } from "gatsby"
 
-const { coral, brighBlue, mediumBlue } = themeColors
+const { coral, brightBlue, mediumBlue } = themeColors
 const { smScreen, mdScreen, lgScreen } = themeBreakpoints
 
 export const ErrorPageWrapper = styled(FullScreenContainer)`
@@ -28,7 +28,7 @@ export const ErrorPageText = styled.p`
   }
 `
 export const ErrorPageLink = styled(Link)`
-  background: ${brighBlue};
+  background: ${brightBlue};
   color: white;
   transition: 0.3s;
 

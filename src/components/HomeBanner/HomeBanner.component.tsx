@@ -5,7 +5,7 @@ import { Logo } from "../Logo/Logo.component"
 import { MainContainer } from "../Containers/Containers.ui"
 import { Link } from "gatsby"
 
-const { darkGray, brighBlue, coral } = themeColors
+const { darkGray, brightBlue, coral } = themeColors
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
 const FullScreenGrid = styled.div`
@@ -91,7 +91,7 @@ const LogoImage = styled.img`
   width: 100%;
   margin: 0 auto;
   display: block;
-  background: ${brighBlue};
+  background: ${brightBlue};
 
   @media (min-width: ${smScreen}) and (orientation: portrait) {
     width: 80%;

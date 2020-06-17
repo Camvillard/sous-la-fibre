@@ -1,15 +1,17 @@
-import React, { Fragment, ReactNode } from "react"
+import React, { ReactNode } from "react"
 import { GlobalStyle } from "../../theme/global-style"
+import { Footer } from "../Footer/Footer.component"
 
 type LayoutProps = {
   children?: ReactNode
 }
 const Layout = (props: LayoutProps) => {
   return (
-    <Fragment>
+    <>
       <GlobalStyle />
       {props.children}
-    </Fragment>
+      <Footer />
+    </>
   )
 }
 

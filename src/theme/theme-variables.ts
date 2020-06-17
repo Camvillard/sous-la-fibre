@@ -1,4 +1,4 @@
-const brighBlue = `#1AB9FF`
+const brightBlue = `#1AB9FF`
 const mediumBlue = `#37729D`
 const coral = `#FF8874`
 
@@ -39,7 +39,7 @@ export const themeBreakpoints = {
 // const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 
 export const themeColors = {
-  brighBlue,
+  brightBlue,
   mediumBlue,
   coral,
   lightGray,

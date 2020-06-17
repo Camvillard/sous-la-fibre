@@ -7,7 +7,7 @@ import {
   themeFonts,
 } from "../../theme/theme-variables"
 
-const { darkGray, brighBlue } = themeColors
+const { darkGray, brightBlue } = themeColors
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 const { accentFont } = themeFonts
 
