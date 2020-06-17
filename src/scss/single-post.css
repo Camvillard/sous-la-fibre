@@ -6,3 +6,9 @@ hr.wp-block-separator {
   border-width: 0;
   margin: 16px;
 }
+
+.wp-block-embed__wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}

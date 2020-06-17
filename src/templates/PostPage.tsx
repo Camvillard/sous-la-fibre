@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 import { PageProps } from "../models/page.model"
 import { GlobalStyle } from "../theme/global-style"
@@ -13,6 +13,7 @@ import { PodcastPageBack } from "../components/Podcast/PodcastPageBack.component
 
 import "../scss/single-post.css"
 import { Footer } from "../components/Footer/Footer.component"
+import Helmet from "react-helmet"
 
 interface PostPageProps extends PageProps {}
 const PostPage = (props: PostPageProps) => {
@@ -20,10 +21,14 @@ const PostPage = (props: PostPageProps) => {
   const { wordpressPost, site } = data
   const { title, content, date, featured_media, excerpt } = wordpressPost
   const { source_url: imageUrl } = featured_media
+
   return (
     <>
       <GlobalStyle />
       <SEO title={title} description={excerpt} lang={"fr"} />
+      <Helmet>
+        {<script async defer src="//www.instagram.com/embed.js"></script>}
+      </Helmet>
       <PostPageWrapper>
         <PostPageInnerWrapper>
           <PodcastPageBack />
@@ -35,7 +40,6 @@ const PostPage = (props: PostPageProps) => {
           </PostContent>
         </PostPageInnerWrapper>
       </PostPageWrapper>
-      <Footer />
     </>
   )
 }
