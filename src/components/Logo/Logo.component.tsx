@@ -32,6 +32,12 @@ const Baseline = styled.p`
     max-width: 480px;
     margin-left 0;
   }
+  @media (min-width: ${xlgScreen}) {
+    font-size: 3.6rem;
+    text-align: left;
+    max-width: 580px;
+    margin-left 0;
+  }
 `
 
 const LogoImage = styled.img`

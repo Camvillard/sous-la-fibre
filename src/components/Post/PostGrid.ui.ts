@@ -5,6 +5,9 @@ import { themeBreakpoints } from "../../theme/theme-variables"
 const { smScreen, lgScreen } = themeBreakpoints
 
 export const PostGrid = styled(GridContainer)`
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   gap: 16px;
   @media (min-width: ${smScreen}) {
     gap: 24px;

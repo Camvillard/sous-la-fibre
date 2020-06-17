@@ -23,6 +23,13 @@ const FullScreenGrid = styled.div`
       "image logo"
       "image nav";
   }
+  @media (min-width: ${xlgScreen}) {
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "image logo"
+      "image nav";
+  }
 `
 
 const GridLogoWrapper = styled.div`
@@ -45,6 +52,11 @@ const GridLogoWrapper = styled.div`
   @media (min-width: ${lgScreen}) and (orientation: landscape) {
     left: -112px;
     width: calc(100% + 112px);
+    padding-right: 24px;
+  }
+  @media (min-width: ${xlgScreen}) and (orientation: landscape) {
+    left: -152px;
+    width: calc(100% + 152px);
     padding-right: 24px;
   }
 `
@@ -172,10 +184,7 @@ export const HomeBanner = () => {
       <GridNavWrapper>
         <HomeLink to={"#tous-les-episodes"}>parcourir les épisodes</HomeLink>
         <HomeLink to={"#tous-les-articles"}>lire les articles</HomeLink>
-        {/* <HomeLink to={"#"}>à propos</HomeLink> */}
-        <HomeNav onClick={toggleAbout}>
-          {showAbout ? "prochainement !" : "à propos"}
-        </HomeNav>
+        <HomeLink to={"/a-propos"}>à propos</HomeLink>
         <HomeNav onClick={toggleEmail}>
           {showEmail ? "souslafibre@gmail.com" : "contact"}
         </HomeNav>

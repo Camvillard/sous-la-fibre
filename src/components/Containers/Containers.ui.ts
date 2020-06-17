@@ -1,4 +1,7 @@
 import styled from "styled-components"
+import { themeBreakpoints } from "../../theme/theme-variables"
+
+const { smScreen, mdScreen, lgScreen } = themeBreakpoints
 
 type ContainerProps = {
   top?: string
@@ -10,6 +13,12 @@ export const MainContainer = styled.div`
   margin-right: auto;
   margin-top: ${(props: ContainerProps) => props.top || "24px"};
   margin-bottom: ${(props: ContainerProps) => props.bottom || "24px"};
+  @media (min-width: ${smScreen}) {
+    width: 88vw;
+  }
+  @media (min-width: ${mdScreen}) {
+    width: 84vw;
+  }
 `
 
 export const FullScreenContainer = styled.div`
