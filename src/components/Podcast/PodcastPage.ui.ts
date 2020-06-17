@@ -20,14 +20,13 @@ export const PodcastInnerWrapper = styled.div`
   border-top: 8px solid white;
   border-bottom: 16px solid white;
   @media (min-width: ${smScreen}) {
-    width: 90vw;
     padding: 0 24px;
   }
   @media (min-width: ${mdScreen}) {
     width: 74vw;
     max-height: 90vh;
     height: 90vh;
-    padding: 0 40px;
+    padding: 40px;
   }
 `
 
@@ -40,18 +39,14 @@ export const Back = styled(Link)`
   align-self: flex-start;
   width: 86vw;
   margin: 4px auto 8px;
+  @media (min-width: ${mdScreen}) {
+    width: 74vw;
+  }
 `
 export const PodcastGridContent = styled(GridContainer)`
   grid-template-columns: 1fr;
   gap: 8px;
-  @media (min-width: ${smScreen}) {
-    // grid-template-columns: 40% 60%;
-    // grid-template-rows: auto auto auto;
-    // grid-template-areas: "widget header" "widget content" "footer content";
-    // gap: 24px;
-  }
   @media (min-width: ${mdScreen}) {
-    // grid-template-columns: 2.5fr 1fr;
     gap: 24px;
   }
 `
