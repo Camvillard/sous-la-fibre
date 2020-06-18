@@ -17,21 +17,6 @@ export const FooterIconsWrapper = styled.ul`
   padding: 0;
 `
 
-export const IconLink = styled.li`
-  display: inline;
-  margin-right: 8px;
-  a {
-    color: ${mediumBlue};
-  }
-  svg {
-    width: 20px !important;
-    height: 20px !important;
-  }
-  path {
-    width: 100%;
-    height: 100%:
-  }
-`
 export const Copyright = styled.p`
   font-size: 1.2rem;
   text-transform: uppercase;

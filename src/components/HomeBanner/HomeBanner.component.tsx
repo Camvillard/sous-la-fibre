@@ -4,6 +4,7 @@ import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
 import { Logo } from "../Logo/Logo.component"
 import { MainContainer } from "../Containers/Containers.ui"
 import { Link } from "gatsby"
+import { Social } from "../Social/Social.component"
 
 const { darkGray, brightBlue, coral } = themeColors
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
@@ -35,7 +36,7 @@ const FullScreenGrid = styled.div`
 const GridLogoWrapper = styled.div`
   width: 92%;
   align-self: end;
-  margin: 0 auto;
+  margin: 32px auto 0;
   padding: 12px 0;
   @media (min-width: ${smScreen}) {
     width: 88vw;
@@ -116,7 +117,7 @@ const LogoImage = styled.img`
 `
 
 const HomeLink = styled(Link)`
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: ${darkGray};
   display: block;
@@ -139,7 +140,7 @@ const HomeLink = styled(Link)`
 
 const HomeNav = styled.p`
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: ${darkGray};
   text-align: center;
@@ -174,21 +175,24 @@ export const HomeBanner = () => {
   const imageSrc =
     "https://contenu.souslafibre.com/wp-content/uploads/2020/06/sous-la-fibre_logo.jpg"
   return (
-    <FullScreenGrid>
-      <GridLogoWrapper>
-        <Logo />
-      </GridLogoWrapper>
-      <GridImageWrapper>
-        <LogoImage src={imageSrc} />
-      </GridImageWrapper>
-      <GridNavWrapper>
-        <HomeLink to={"#tous-les-episodes"}>parcourir les épisodes</HomeLink>
-        <HomeLink to={"#tous-les-articles"}>lire les articles</HomeLink>
-        <HomeLink to={"/a-propos"}>à propos</HomeLink>
-        <HomeNav onClick={toggleEmail}>
-          {showEmail ? "souslafibre@gmail.com" : "contact"}
-        </HomeNav>
-      </GridNavWrapper>
-    </FullScreenGrid>
+    <>
+      <Social iconColors={darkGray} isFixed={true} />
+      <FullScreenGrid>
+        <GridLogoWrapper>
+          <Logo />
+        </GridLogoWrapper>
+        <GridImageWrapper>
+          <LogoImage src={imageSrc} />
+        </GridImageWrapper>
+        <GridNavWrapper>
+          <HomeLink to={"#tous-les-episodes"}>parcourir les épisodes</HomeLink>
+          <HomeLink to={"#tous-les-articles"}>lire les articles</HomeLink>
+          <HomeLink to={"/a-propos"}>à propos</HomeLink>
+          <HomeNav onClick={toggleEmail}>
+            {showEmail ? "souslafibre@gmail.com" : "contact"}
+          </HomeNav>
+        </GridNavWrapper>
+      </FullScreenGrid>
+    </>
   )
 }
