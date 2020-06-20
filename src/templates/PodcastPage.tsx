@@ -4,16 +4,10 @@ import { graphql } from "gatsby"
 import { PodcastPageHeader } from "../components/Podcast/PodcastPageHeader.component"
 import { PageProps } from "../models/page.model"
 import { GlobalStyle } from "../theme/global-style"
-import {
-  PodcastPageWrapper,
-  PodcastInnerWrapper,
-  PodcastGridContent,
-  Back,
-} from "../components/Podcast/PodcastPage.ui"
 import { PodcastPageDescription } from "../components/Podcast/PodcastPageDescription.component"
 import SEO from "../components/Seo/Seo.component"
 import { createExcerpt } from "../helpers/podcast.helpers"
-import { themeBreakpoints } from "../theme/theme-variables"
+import { themeBreakpoints, themeColors } from "../theme/theme-variables"
 import { convertInRegulatText } from "../helpers/text.helpers"
 import {
   PodcastWidget,
@@ -21,8 +15,17 @@ import {
 } from "../components/Podcast/PodcastWidget.component"
 import { PodcastPageLinks } from "../components/Podcast/PodcastPageLinks.component"
 import { useMediaQuery } from "react-responsive"
+import { Social } from "../components/Social/Social.component"
+import {
+  SingleWrapper,
+  SingleInnerWraper,
+  SingleContent,
+  FixedHeader,
+  Back,
+} from "../components/Single/Single.ui"
 
-const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
+const { smScreen } = themeBreakpoints
+const { darkGray } = themeColors
 
 interface PodcastPageProps extends PageProps {}
 
@@ -30,7 +33,7 @@ const PodcastPage = (props: PodcastPageProps) => {
   const { data, pathContext } = props
   const { wordpressWpPodcast } = data
   const { episode } = pathContext
-  const { content, acf, featured_media } = wordpressWpPodcast
+  const { content, acf } = wordpressWpPodcast
   const { idAusha } = acf
 
   const title = convertInRegulatText(wordpressWpPodcast.title)
@@ -53,10 +56,13 @@ const PodcastPage = (props: PodcastPageProps) => {
     <>
       <GlobalStyle />
       <SEO title={title} description={excerpt} lang={"fr"} />
-      <PodcastPageWrapper>
-        <Back to={"/"}>retour</Back>
-        <PodcastInnerWrapper>
-          <PodcastGridContent>
+      <SingleWrapper>
+        <SingleInnerWraper>
+          <FixedHeader>
+            <Back to={"/"}>retour</Back>
+            <Social iconColors={darkGray} />
+          </FixedHeader>
+          <SingleContent>
             <PodcastPageHeader title={title} episode={episode} />
             <PodcastWidget
               podcastId={idAusha}
@@ -64,9 +70,9 @@ const PodcastPage = (props: PodcastPageProps) => {
             />
             <PodcastPageDescription content={content} acf={acf} />
             <PodcastPageLinks links={acf} />
-          </PodcastGridContent>
-        </PodcastInnerWrapper>
-      </PodcastPageWrapper>
+          </SingleContent>
+        </SingleInnerWraper>
+      </SingleWrapper>
     </>
   )
 }

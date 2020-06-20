@@ -16,16 +16,3 @@ export const Header3 = styled.h3`
 export const Header4 = styled.h4`
   font-size: 2.2rem;
 `
-export const MainTitle = styled(Header1)`
-  font-size: 3.64rem;
-  margin-bottom: 12px;
-  @media (min-width: ${smScreen}) {
-    font-size: 2.8rem;
-  }
-  @media (min-width: ${mdScreen}) {
-    font-size: 3rem;
-  }
-  @media (min-width: ${lgScreen}) {
-    font-size: 3.6rem;
-  }
-`

@@ -1,6 +1,6 @@
 import React from "react"
-import { MainTitle } from "../Headers/Headers.ui"
 import { PageHeaderWrapper, PodcastEpisode } from "./PodcastPage.ui"
+import { SingleHeaderWrapper, SingleTitle } from "../Single/Single.ui"
 
 type TPodcastPageHeader = {
   title: string
@@ -9,11 +9,11 @@ type TPodcastPageHeader = {
 
 export const PodcastPageHeader = ({ title, episode }: TPodcastPageHeader) => {
   return (
-    <PageHeaderWrapper>
+    <SingleHeaderWrapper>
       <PodcastEpisode>épisode {episode}</PodcastEpisode>
-      <MainTitle>
+      <SingleTitle>
         <span dangerouslySetInnerHTML={{ __html: title }} />
-      </MainTitle>
-    </PageHeaderWrapper>
+      </SingleTitle>
+    </SingleHeaderWrapper>
   )
 }

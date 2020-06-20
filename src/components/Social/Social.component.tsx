@@ -24,7 +24,7 @@ type SocialProps = {
 
 export const IconsWrapper = styled.ul<SocialProps>`
   list-style: none;
-  margin: 0 0 8px;
+  margin: 0;
   padding: 0;
   ${props => (props.isFixed ? "position: fixed; top: 16px; right: 16px" : "")};
 `
@@ -36,8 +36,8 @@ export const IconLink = styled.li<IconLinkProps>`
     color: ${props => props.color || mediumBlue};
   }
   svg {
-    width: 18px !important;
-    height: 18px !important;
+    width: 16px !important;
+    height: 16px !important;
   }
   path {
     width: 100%;
@@ -46,8 +46,8 @@ export const IconLink = styled.li<IconLinkProps>`
 
   @media (min-width: ${mdScreen}) {
     svg {
-      width: 22px !important;
-      height: 22px !important;
+      width: 18px !important;
+      height: 18px !important;
     }
 
   }
@@ -71,7 +71,7 @@ export const Social = ({ iconColors, isFixed }: SocialProps) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <GooglePodcast />
+          <GooglePodcast color={iconColors} />
         </a>
       </IconLink>
       <IconLink color={iconColors}>

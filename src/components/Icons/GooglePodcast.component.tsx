@@ -1,9 +1,13 @@
 import React from "react"
 
-export const GooglePodcast = () => {
+type Props = {
+  color?: string
+}
+
+export const GooglePodcast = ({ color }: Props) => {
   return (
     <svg
-      fill="#000000"
+      fill={color || "white"}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 50 50"
       width="50px"

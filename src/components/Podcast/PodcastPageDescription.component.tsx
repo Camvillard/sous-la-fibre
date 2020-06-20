@@ -3,6 +3,7 @@ import { themeBreakpoints } from "../../theme/theme-variables"
 import { PodcastPageFooter } from "./PodcastPageFooter.component"
 import { AcfData } from "../../models/podcast.model"
 import { PageDescriptionWrapper } from "./PodcastPage.ui"
+import { SingleContent } from "../Single/Single.ui"
 
 const { smScreen, mdScreen } = themeBreakpoints
 
@@ -15,9 +16,9 @@ export const PodcastPageDescription = ({
   acf,
 }: TPodcastPageDescription) => {
   return (
-    <PageDescriptionWrapper>
+    <SingleContent>
       <div dangerouslySetInnerHTML={{ __html: content }} />
       <PodcastPageFooter acf={acf} />
-    </PageDescriptionWrapper>
+    </SingleContent>
   )
 }

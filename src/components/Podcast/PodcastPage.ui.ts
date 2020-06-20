@@ -24,9 +24,9 @@ export const PodcastInnerWrapper = styled.div`
   }
   @media (min-width: ${mdScreen}) {
     width: 74vw;
-    max-height: 90vh;
-    height: 90vh;
-    padding: 40px;
+    max-height: 88vh;
+    height: 88vh;
+    padding: 16px 40px;
   }
 `
 
@@ -61,16 +61,13 @@ export const PodcastPlayer = styled.iframe`
 
 export const PageHeaderWrapper = styled.div`
   margin-left: 15px;
-  @media (min-width: ${smScreen}) {
-    // grid-area: header;
-  }
 `
 
 export const PodcastEpisode = styled.p`
   text-transform: uppercase;
   font-size: 1.2rem;
   color: ${gray};
-  margin: 0 0 8px;
+  margin: 0 15px 8px;
 `
 
 export const PageDescriptionWrapper = styled.div`
