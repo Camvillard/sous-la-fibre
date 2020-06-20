@@ -7,7 +7,6 @@ import SEO from "../components/Seo/Seo.component"
 import "../scss/single-post.css"
 import Helmet from "react-helmet"
 import { Social } from "../components/Social/Social.component"
-import { themeColors } from "../theme/theme-variables"
 import {
   SingleTitle,
   FixedHeader,
@@ -21,7 +20,7 @@ interface PostPageProps extends PageProps {}
 const PostPage = (props: PostPageProps) => {
   const { data } = props
   const { wordpressPost } = data
-  const { title, content, featured_media, excerpt } = wordpressPost
+  const { title, content, excerpt } = wordpressPost
 
   return (
     <>

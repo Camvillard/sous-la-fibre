@@ -1,5 +1,5 @@
 import React from "react"
-import { PageHeaderWrapper, PodcastEpisode } from "./PodcastPage.ui"
+import { PodcastEpisode } from "./PodcastPage.ui"
 import { SingleHeaderWrapper, SingleTitle } from "../Single/Single.ui"
 
 type TPodcastPageHeader = {
