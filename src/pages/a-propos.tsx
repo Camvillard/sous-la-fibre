@@ -7,7 +7,6 @@ import { GlobalStyle } from "../theme/global-style"
 import {
   AboutImage,
   CaptionImage,
-  PageTitle,
   AboutContent,
   AboutFooter,
   AboutGrid,
@@ -15,8 +14,8 @@ import {
   AboutImageWrapper,
 } from "../components/About/AboutPage.ui"
 import { MainContainer } from "../components/Containers/Containers.ui"
-import { MainTitle } from "../components/Headers/Headers.ui"
 import { PageBackButton } from "../components/Buttons/BackButton.component"
+import { SingleTitle } from "../components/Single/Single.ui"
 
 type AboutPageData = {
   site: SiteData
@@ -42,7 +41,7 @@ const APropos = (props: AboutPageProps) => {
           <CaptionImage>collage de Kim Renaud-Venne</CaptionImage>
         </AboutImageWrapper>
         <AboutContainer>
-          <MainTitle>à propos</MainTitle>
+          <SingleTitle>à propos</SingleTitle>
           <AboutContent>
             <span dangerouslySetInnerHTML={{ __html: content }} />
           </AboutContent>

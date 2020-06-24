@@ -16,3 +16,4 @@ export const Header3 = styled.h3`
 export const Header4 = styled.h4`
   font-size: 2.2rem;
 `
+export const MainTitle = styled(Header1)``
