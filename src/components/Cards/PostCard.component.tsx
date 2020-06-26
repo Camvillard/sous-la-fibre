@@ -64,8 +64,6 @@ export const PostCard = ({ post }: PostCardProps) => {
   }
   const { title, content, date, featured_media, slug, tags, categories } = post
   const etiquettes = tags.concat(categories)
-  console.log("eti", etiquettes)
-
   const thumbnail = featured_media?.source_url || ""
   const excerpt = createExcerpt(content)
 

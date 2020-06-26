@@ -37,7 +37,7 @@ const GridLogoWrapper = styled.div`
   width: 92%;
   align-self: end;
   margin: 32px auto 0;
-  padding: 12px 0;
+  padding: 12px 0 0;
   @media (min-width: ${smScreen}) {
     width: 88vw;
   }
@@ -63,7 +63,7 @@ const GridLogoWrapper = styled.div`
 `
 
 const GridImageWrapper = styled.div`
-  width: 98%;
+  width: 88%;
   align-self: center;
   margin: 0 auto;
   @media (min-width: ${mdScreen}) and (orientation: landscape) {
@@ -79,7 +79,7 @@ const GridImageWrapper = styled.div`
 
 const GridNavWrapper = styled.div`
   width: 92%;
-  align-self: center;
+  // align-self: center;
   margin: 0 auto;
   @media (min-width: ${smScreen}) {
     width: 88vw;
@@ -117,7 +117,8 @@ const LogoImage = styled.img`
 `
 
 const HomeLink = styled(Link)`
-  font-size: 1.8rem;
+  margin: 6px 0;
+  font-size: 2rem;
   font-weight: 700;
   color: ${darkGray};
   display: block;
@@ -140,7 +141,7 @@ const HomeLink = styled(Link)`
 
 const HomeNav = styled.p`
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: ${darkGray};
   text-align: center;

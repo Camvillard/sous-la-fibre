@@ -18,7 +18,7 @@ const Baseline = styled.p`
   text-align: center;
   font-size: 1.8rem;
   text-transform: uppercase;
-  margin: 20px auto 0;
+  margin: 16px auto 0;
   max-width: 340px;
 
   @media (min-width: ${smScreen}) {

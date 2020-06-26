@@ -17,12 +17,15 @@ export const SingleInnerWraper = styled.div`
   overflow-y: scroll;
   border-top: 8px solid white;
   border-bottom: 16px solid white;
+  padding: 12px;
   @media (min-width: ${mdScreen}) {
     width: 92vw;
     max-height: 88vh;
     height: 88vh;
+    padding: 20px;
   }
   @media (min-width: ${lgScreen}) {
+    padding: 40px;
     width: 62vw;
   }
 `
