@@ -20,12 +20,17 @@ interface PostPageProps extends PageProps {}
 const PostPage = (props: PostPageProps) => {
   const { data } = props
   const { wordpressPost } = data
-  const { title, content, excerpt } = wordpressPost
+  const { title, content, excerpt, featured_media } = wordpressPost
 
   return (
     <>
       <GlobalStyle />
-      <SEO title={title} description={excerpt} lang={"fr"} />
+      <SEO
+        title={title}
+        description={excerpt}
+        lang={"fr"}
+        thumbnail={featured_media.source_url}
+      />
       <Helmet>
         {<script async defer src="//www.instagram.com/embed.js"></script>}
       </Helmet>

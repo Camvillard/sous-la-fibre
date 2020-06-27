@@ -33,7 +33,7 @@ const PodcastPage = (props: PodcastPageProps) => {
   const { data, pathContext } = props
   const { wordpressWpPodcast } = data
   const { episode } = pathContext
-  const { content, acf } = wordpressWpPodcast
+  const { content, acf, featured_media } = wordpressWpPodcast
   const { idAusha } = acf
 
   const title = convertInRegulatText(wordpressWpPodcast.title)
@@ -55,7 +55,12 @@ const PodcastPage = (props: PodcastPageProps) => {
   return (
     <>
       <GlobalStyle />
-      <SEO title={title} description={excerpt} lang={"fr"} />
+      <SEO
+        title={title}
+        description={excerpt}
+        lang={"fr"}
+        thumbnail={featured_media.source_url}
+      />
       <SingleWrapper>
         <SingleInnerWraper>
           <FixedHeader>
