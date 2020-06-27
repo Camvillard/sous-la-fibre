@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa"
 import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
 import { GooglePodcast } from "../Icons/GooglePodcast.component"
+import { Ausha } from "../Icons/Ausha.component"
 
 const { darkGray, mediumBlue, brightBlue, mediumGray, gray } = themeColors
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
@@ -58,11 +59,20 @@ export const Social = ({ iconColors, isFixed }: SocialProps) => {
     <IconsWrapper isFixed={isFixed}>
       <IconLink color={iconColors}>
         <a
-          href="https://podcast.ausha.co/souslafibre"
+          href="https://podcasts.apple.com/ca/podcast/sous-la-fibre/id1494609876"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaPodcast />
+        </a>
+      </IconLink>
+      <IconLink color={iconColors}>
+        <a
+          href="https://podcast.ausha.co/souslafibre"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Ausha color={iconColors} />
         </a>
       </IconLink>
       <IconLink color={iconColors}>
