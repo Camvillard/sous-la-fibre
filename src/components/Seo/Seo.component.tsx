@@ -71,6 +71,10 @@ const SEO = ({ description, lang, meta, title, thumbnail }: SEOProps) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: thumbnail,
+        },
       ]}
     />
   )
