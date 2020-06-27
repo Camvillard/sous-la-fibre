@@ -8,11 +8,11 @@ import "../scss/single-post.css"
 import Helmet from "react-helmet"
 import { Social } from "../components/Social/Social.component"
 import {
-  SingleTitle,
+  SinglePostTitle,
   FixedHeader,
   Back,
   SingleInnerWraper,
-  SingleContent,
+  SinglePostContent,
   SingleWrapper,
 } from "../components/Single/Single.ui"
 
@@ -35,12 +35,12 @@ const PostPage = (props: PostPageProps) => {
             <Back to={"/"}>retour</Back>
             <Social iconColors={"white"} />
           </FixedHeader>
-          <SingleTitle>
+          <SinglePostTitle>
             <span dangerouslySetInnerHTML={{ __html: title }} />
-          </SingleTitle>
-          <SingleContent>
+          </SinglePostTitle>
+          <SinglePostContent>
             <span dangerouslySetInnerHTML={{ __html: content }} />
-          </SingleContent>
+          </SinglePostContent>
         </SingleInnerWraper>
       </SingleWrapper>
     </>

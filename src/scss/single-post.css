@@ -8,7 +8,17 @@ hr.wp-block-separator {
 }
 
 .wp-block-embed__wrapper {
-  display: flex;
-  justify-content: center;
   margin: 0;
+}
+
+figure {
+  margin: 24px 0;
+}
+
+.wp-block-embed__wrapper iframe {
+  min-width: 100px !important;
+  @media (min-width: 1024px) {
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
 }

@@ -26,7 +26,7 @@ export const SingleInnerWraper = styled.div`
   }
   @media (min-width: ${lgScreen}) {
     padding: 40px;
-    width: 62vw;
+    width: 72vw;
   }
 `
 
@@ -35,14 +35,17 @@ export const FixedHeader = styled.div`
   margin: auto;
   position: fixed;
   top: 2vh;
+  left: 7vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   @media (min-width: ${mdScreen}) {
     width: 92vw;
+    left: 4vw;
   }
   @media (min-width: ${lgScreen}) {
-    width: 62vw;
+    width: 72vw;
+    left: 14vw;
   }
 `
 
@@ -71,10 +74,37 @@ export const SingleTitle = styled(Header1)`
   }
 `
 
+export const SinglePostTitle = styled(SingleTitle)`
+  margin-left: 0;
+  margin-right: 0;
+`
+
 export const SingleContent = styled.div`
   margin-left: 15px;
   margin-right: 15px;
-  p {
+  p,
+  figure {
     max-width: 532px;
   }
+
+  @media (min-width: ${smScreen}) {
+    p {
+      max-width: 548px;
+    }
+    figure {
+      max-width: 632px;
+    }
+  }
+  @media (min-width: ${mdScreen}) {
+    figure {
+      max-width: 732px;
+    }
+  }
+  @media (min-width: ${lgScreen}) {
+  }
+`
+
+export const SinglePostContent = styled(SingleContent)`
+  margin-left: 0;
+  margin-right: 0;
 `

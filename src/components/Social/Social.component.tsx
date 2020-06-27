@@ -24,6 +24,8 @@ type SocialProps = {
 }
 
 export const IconsWrapper = styled.ul<SocialProps>`
+  display: flex;
+  justify-content: space-between;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -31,7 +33,6 @@ export const IconsWrapper = styled.ul<SocialProps>`
 `
 
 export const IconLink = styled.li<IconLinkProps>`
-  display: inline;
   margin-right: 8px;
   a {
     color: ${props => props.color || mediumBlue};
@@ -43,6 +44,10 @@ export const IconLink = styled.li<IconLinkProps>`
   path {
     width: 100%;
     height: 100%:
+  }
+
+  &:last-child {
+    margin-right: 0;
   }
 
   @media (min-width: ${mdScreen}) {
