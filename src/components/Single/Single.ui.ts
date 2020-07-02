@@ -77,11 +77,15 @@ export const SingleTitle = styled(Header1)`
 export const SinglePostTitle = styled(SingleTitle)`
   margin-left: 0;
   margin-right: 0;
+  margin-bottom: 1.4rem;
 `
 
 export const SingleContent = styled.div`
   margin-left: 15px;
   margin-right: 15px;
+  p {
+    text-align: justify;
+  }
   p,
   figure {
     max-width: 532px;
