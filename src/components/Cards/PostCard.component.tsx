@@ -64,8 +64,13 @@ export const PostCard = ({ post }: PostCardProps) => {
   }
   const { title, content, date, featured_media, slug, tags, categories } = post
   const etiquettes = tags?.concat(categories)
-  const thumbnail = featured_media?.source_url || ""
+  const thumbnail =
+    featured_media?.source_url ||
+    "https://contenu.souslafibre.com/wp-content/uploads/2020/06/sous-la-fibre_logo.jpg"
   const excerpt = createExcerpt(content)
+
+  console.log("1", thumbnail)
+  console.log("2", featured_media)
 
   return (
     <PostCardWrapper>
