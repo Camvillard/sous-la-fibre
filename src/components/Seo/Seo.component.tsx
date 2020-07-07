@@ -1,6 +1,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { convertInRegulatText } from "../../helpers/text.helpers"
 
 type SEOProps = {
   description?: string

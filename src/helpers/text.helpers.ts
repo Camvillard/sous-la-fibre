@@ -4,4 +4,6 @@ export const convertInRegulatText = (encoded: string): string => {
     .replace(`&lsquo;`, `'`)
     .replace(`&laquo;`, `«`)
     .replace(`&raquo;`, `»`)
+    .replace(`<p>`, "")
+    .replace(`</p>`, "")
 }
