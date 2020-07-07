@@ -1,9 +1,12 @@
 export const convertInRegulatText = (encoded: string): string => {
-  return encoded
-    .replace(`&rsquo;`, `'`)
-    .replace(`&lsquo;`, `'`)
-    .replace(`&laquo;`, `«`)
-    .replace(`&raquo;`, `»`)
-    .replace(`<p>`, "")
-    .replace(`</p>`, "")
+  return (
+    encoded &&
+    encoded
+      .replace(`&rsquo;`, `'`)
+      .replace(`&lsquo;`, `'`)
+      .replace(`&laquo;`, `«`)
+      .replace(`&raquo;`, `»`)
+      .replace(`<p>`, "")
+      .replace(`</p>`, "")
+  )
 }
