@@ -12,6 +12,7 @@ type SEOProps = {
 }
 
 const SEO = ({ description, lang, meta, title, thumbnail }: SEOProps) => {
+  const convertedDescription = convertInRegulatText(description)
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -26,8 +27,7 @@ const SEO = ({ description, lang, meta, title, thumbnail }: SEOProps) => {
     `
   )
 
-  const metaDescription =
-    convertInRegulatText(description) || site.siteMetadata.description
+  const metaDescription = convertedDescription || site.siteMetadata.description
 
   return (
     <Helmet
