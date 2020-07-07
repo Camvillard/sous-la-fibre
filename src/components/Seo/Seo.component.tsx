@@ -26,7 +26,8 @@ const SEO = ({ description, lang, meta, title, thumbnail }: SEOProps) => {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription =
+    convertInRegulatText(description) || site.siteMetadata.description
 
   return (
     <Helmet
