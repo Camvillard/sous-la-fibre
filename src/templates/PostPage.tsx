@@ -29,7 +29,10 @@ const PostPage = (props: PostPageProps) => {
         title={title}
         description={excerpt}
         lang={"fr"}
-        thumbnail={featured_media.source_url}
+        thumbnail={
+          featured_media?.source_url ||
+          "https://contenu.souslafibre.com/wp-content/uploads/2020/06/sous-la-fibre_logo.jpg"
+        }
       />
       <Helmet>
         {<script async defer src="//www.instagram.com/embed.js"></script>}
