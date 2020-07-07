@@ -69,9 +69,6 @@ export const PostCard = ({ post }: PostCardProps) => {
     "https://contenu.souslafibre.com/wp-content/uploads/2020/06/sous-la-fibre_logo.jpg"
   const excerpt = createExcerpt(content)
 
-  console.log("1", thumbnail)
-  console.log("2", featured_media)
-
   return (
     <PostCardWrapper>
       <PostDate>publié le {date}</PostDate>
