@@ -11,11 +11,7 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link
-          rel="preload"
-          href="https://use.typekit.net/pdp7wjj.css"
-          crossOrigin="anonymous"
-        />
+        <link href="https://use.typekit.net/pdp7wjj.css" />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
