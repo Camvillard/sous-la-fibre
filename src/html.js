@@ -11,7 +11,7 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link href="https://use.typekit.net/pdp7wjj.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/pdp7wjj.css" />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
