@@ -18,6 +18,7 @@ export type WordpressPost = {
   excerpt?: string
   tags?: Tag[]
   categories?: Categorie[]
+  author: number
 }
 
 type Tag = {
