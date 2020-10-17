@@ -1,32 +1,43 @@
 import styled from "styled-components"
 import { FullScreenContainer } from "../Containers/Containers.ui"
-import { themeColors, themeBreakpoints } from "../../theme/theme-variables"
+import {
+  themeColors,
+  themeBreakpoints,
+  themeFonts,
+} from "../../theme/theme-variables"
 import { Header1 } from "../Headers/Headers.ui"
 import { Link } from "gatsby"
 
 const { mediumBlue } = themeColors
 const { smScreen, mdScreen, lgScreen } = themeBreakpoints
+const { headersFont } = themeFonts
 
 export const SingleWrapper = styled(FullScreenContainer)`
   background: ${mediumBlue};
 `
 export const SingleInnerWraper = styled.div`
   background: white;
-  width: 86vw;
-  max-height: 88vh;
+  width: 92vw;
+  max-height: 90vh;
+  margin-top: 4vh;
   overflow-y: scroll;
-  border-top: 8px solid white;
-  border-bottom: 16px solid white;
+  border-top: 12px solid white;
+  border-bottom: 12px solid white;
   padding: 12px;
+  @media (min-width: ${smScreen}) {
+    padding: 12px 24px;
+    margin-top: 2vh;
+  }
   @media (min-width: ${mdScreen}) {
     width: 92vw;
-    max-height: 88vh;
-    height: 88vh;
     padding: 20px;
+    border-top: 18px solid white;
+    border-bottom: 18px solid white;
   }
   @media (min-width: ${lgScreen}) {
+    margin-top: 4vh;
     padding: 40px;
-    width: 72vw;
+    width: 82vw;
   }
 `
 
@@ -74,12 +85,6 @@ export const SingleTitle = styled(Header1)`
   }
 `
 
-export const SinglePostTitle = styled(SingleTitle)`
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: 1.4rem;
-`
-
 export const SingleContent = styled.div`
   margin-left: 15px;
   margin-right: 15px;
@@ -93,7 +98,8 @@ export const SingleContent = styled.div`
 
   @media (min-width: ${smScreen}) {
     p {
-      max-width: 548px;
+      max-width: 90%;
+      margin: auto;
     }
     figure {
       max-width: 632px;
@@ -107,8 +113,58 @@ export const SingleContent = styled.div`
   @media (min-width: ${lgScreen}) {
   }
 `
+// POSTS
 
-export const SinglePostContent = styled(SingleContent)`
+export const SinglePostTitle = styled(SingleTitle)`
   margin-left: 0;
   margin-right: 0;
+  margin-top: 2rem;
+  margin-bottom: 1.4rem;
+  @media (min-width: ${smScreen}) {
+    max-width: 88%;
+    margin-left: 2%;
+    // margin: 2rem 10% 1.4rem 2%;
+  }
+  @media (min-width: ${mdScreen}) {
+    max-width: 82%;
+    margin-left: 4%;
+  }
+`
+
+export const SinglePostContent = styled(SingleContent)`
+  margin-left: 0px;
+  margin-right: 0px;
+  max-width: 100%;
+  figure {
+    max-width: 100%;
+  }
+  @media (min-width: ${smScreen}) {
+    p {
+      max-width: 88%;
+      margin-left: 2%;
+      margin-bottom: 1rem;
+    }
+  }
+  @media (min-width: ${mdScreen}) {
+    p {
+      max-width: 82%;
+      margin-left: 4%;
+      margin-bottom: 1rem;
+    }
+  }
+  @media (min-width: ${lgScreen}) {
+  }
+`
+
+export const SinglePostMeta = styled.div`
+  border-top: 1px solid ${mediumBlue};
+  p {
+    color: ${mediumBlue};
+    text-transform: uppercase;
+    font-size: 0.8em;
+  }
+  span {
+    // font-family: ${headersFont};
+  }
+  margin-top: 16px;
 `

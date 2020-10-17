@@ -14,13 +14,22 @@ import {
   SingleInnerWraper,
   SinglePostContent,
   SingleWrapper,
+  SinglePostMeta,
 } from "../components/Single/Single.ui"
+import { getAuthorsName } from "../shared/author.utils"
 
 interface PostPageProps extends PageProps {}
 const PostPage = (props: PostPageProps) => {
   const { data } = props
   const { wordpressPost } = data
-  const { title, content, excerpt, featured_media } = wordpressPost
+  const {
+    title,
+    content,
+    excerpt,
+    featured_media,
+    date,
+    author,
+  } = wordpressPost
 
   return (
     <>
@@ -49,6 +58,14 @@ const PostPage = (props: PostPageProps) => {
           <SinglePostContent>
             <span dangerouslySetInnerHTML={{ __html: content }} />
           </SinglePostContent>
+          <SinglePostMeta>
+            <p>
+              article rédigé par : <span>{getAuthorsName(author)}</span>
+            </p>
+            <p>
+              écrit le : <span>{date}</span>
+            </p>
+          </SinglePostMeta>
         </SingleInnerWraper>
       </SingleWrapper>
     </>
@@ -69,6 +86,7 @@ export const PostPageQuery = graphql`
         source_url
         id
       }
+      author
     }
     site {
       siteMetadata {

@@ -1,3 +1,5 @@
+@import url("https://use.typekit.net/pdp7wjj.css");
+
 figure.wp-block-image {
   margin: 16px 0;
 }
@@ -13,6 +15,30 @@ hr.wp-block-separator {
 
 figure {
   margin: 24px 0;
+}
+
+figure:last-child {
+  margin-bottom: 0;
+}
+
+blockquote {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  font-family: "bely-display", sans-serif;
+  margin-left: 6%;
+  width: 72%;
+  position: relative;
+  color: #37729d;
+}
+
+blockquote::before {
+  content: "\0022";
+  font-size: 32px;
+  position: absolute;
+  color: #37729d;
+  top: -12px;
+  left: -12px;
+  opacity: 0.4;
 }
 
 .wp-block-embed__wrapper iframe {
