@@ -9,7 +9,7 @@ import { Header1 } from "../Headers/Headers.ui"
 import { Link } from "gatsby"
 
 const { mediumBlue } = themeColors
-const { smScreen, mdScreen, lgScreen } = themeBreakpoints
+const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
 const { headersFont } = themeFonts
 
 export const SingleWrapper = styled(FullScreenContainer)`
@@ -39,6 +39,9 @@ export const SingleInnerWraper = styled.div`
     padding: 40px;
     width: 82vw;
   }
+  @media (min-width: ${xlgScreen}) {
+    max-width: 1280px;
+  }
 `
 
 export const FixedHeader = styled.div`
@@ -57,6 +60,10 @@ export const FixedHeader = styled.div`
   @media (min-width: ${lgScreen}) {
     width: 72vw;
     left: 14vw;
+  }
+  @media (min-width: ${xlgScreen}) {
+    max-width: 1280px;
+    left: calc((100vw - 1280px) / 2);
   }
 `
 
@@ -123,11 +130,13 @@ export const SinglePostTitle = styled(SingleTitle)`
   @media (min-width: ${smScreen}) {
     max-width: 88%;
     margin-left: 2%;
-    // margin: 2rem 10% 1.4rem 2%;
   }
   @media (min-width: ${mdScreen}) {
     max-width: 82%;
     margin-left: 4%;
+  }
+  @media (min-width: ${xlgScreen}) {
+    max-width: 78%;
   }
 `
 
@@ -153,6 +162,14 @@ export const SinglePostContent = styled(SingleContent)`
     }
   }
   @media (min-width: ${lgScreen}) {
+    p {
+      max-width: 70%;
+    }
+  }
+  @media (min-width: ${xlgScreen}) {
+    p {
+      max-width: 64%;
+    }
   }
 `
 
@@ -162,9 +179,6 @@ export const SinglePostMeta = styled.div`
     color: ${mediumBlue};
     text-transform: uppercase;
     font-size: 0.8em;
-  }
-  span {
-    // font-family: ${headersFont};
   }
   margin-top: 16px;
 `
