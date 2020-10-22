@@ -23,6 +23,7 @@ import {
   FixedHeader,
   Back,
 } from "../components/Single/Single.ui"
+import { PodcastContentGrid } from "../components/Podcast/PodcastPage.ui"
 
 const { smScreen } = themeBreakpoints
 const { darkGray } = themeColors
@@ -73,8 +74,10 @@ const PodcastPage = (props: PodcastPageProps) => {
               podcastId={idAusha}
               widgetOrientation={widgetOrientation}
             />
-            <PodcastPageDescription content={content} acf={acf} />
-            <PodcastPageLinks links={acf} />
+            <PodcastContentGrid>
+              <PodcastPageDescription content={content} acf={acf} />
+              <PodcastPageLinks links={acf} />
+            </PodcastContentGrid>
           </SingleContent>
         </SingleInnerWraper>
       </SingleWrapper>

@@ -10,7 +10,6 @@ import { Link } from "gatsby"
 
 const { mediumBlue } = themeColors
 const { smScreen, mdScreen, lgScreen, xlgScreen } = themeBreakpoints
-const { headersFont } = themeFonts
 
 export const SingleWrapper = styled(FullScreenContainer)`
   background: ${mediumBlue};
@@ -93,8 +92,6 @@ export const SingleTitle = styled(Header1)`
 `
 
 export const SingleContent = styled.div`
-  margin-left: 15px;
-  margin-right: 15px;
   p {
     text-align: justify;
   }
@@ -120,6 +117,27 @@ export const SingleContent = styled.div`
   @media (min-width: ${lgScreen}) {
   }
 `
+
+// podcasts
+
+export const SinglePodcastContent = styled(SingleContent)`
+  p {
+    margin-left: 0;
+  }
+  @media (min-width: ${smScreen}) {
+    p {
+      max-width: 100%;
+    }
+  }
+  @media (min-width: ${mdScreen}) {
+    p {
+      max-width: 100%;
+    }
+  }
+  @media (min-width: ${lgScreen}) {
+  }
+`
+
 // POSTS
 
 export const SinglePostTitle = styled(SingleTitle)`

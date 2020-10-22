@@ -21,12 +21,12 @@ export const PodcastEpisode = styled.p`
 `
 
 export const ListenWrapper = styled.div`
-  margin-left: 15px;
+  margin-top: 16px;
   @media (min-width: ${smScreen}) {
   }
   @media (min-width: ${mdScreen}) {
     background: none;
-    margin-top: 16px;
+    margin-top: 0;
     border: none;
   }
 `
@@ -50,5 +50,13 @@ export const PodcastList = styled.ul`
   }
   a {
     color: ${darkGray};
+  }
+`
+
+export const PodcastContentGrid = styled(GridContainer)`
+  @media (min-width: ${mdScreen}) {
+    margin-top: 24px;
+    grid-template-columns: 75% 25%;
+    gap: 32px;
   }
 `
