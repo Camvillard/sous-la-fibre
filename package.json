@@ -16,7 +16,7 @@
     "gatsby-plugin-styled-components": "^3.2.1",
     "gatsby-plugin-typescript": "^2.3.1",
     "gatsby-source-filesystem": "^2.2.2",
-    "gatsby-source-wordpress": "^3.3.0",
+    "gatsby-source-wordpress": "^4.0.8",
     "gatsby-transformer-sharp": "^2.4.3",
     "graphql-playground-html": "1.6.22",
     "import": "^0.0.6",
